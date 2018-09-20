@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zhn-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python开发,python测试,python echart," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="先来看下实例，这是我制作的月/季报模式，喜欢的话举个爪吧 ~~ 瞧瞧去！ 设计思路：   收集整理数据 -&amp;gt; 将数据转换为Python Echart图表 -&amp;gt; 设计Html报告页，将echart图标统一展示">
+<meta name="keywords" content="Python开发,python测试,python echart">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何用Python设计专业的工作报告">
+<meta property="og:url" content="https://lelloandluck.github.io/2018/09/19/如何用Python设计专业的工作报告/index.html">
+<meta property="og:site_name" content="&lt;font face=&#39;STCAIYUN&#39;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;font color=&quot;green&quot; size=3&gt;welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
+<meta property="og:description" content="先来看下实例，这是我制作的月/季报模式，喜欢的话举个爪吧 ~~ 瞧瞧去！ 设计思路：   收集整理数据 -&amp;gt; 将数据转换为Python Echart图表 -&amp;gt; 设计Html报告页，将echart图标统一展示">
+<meta property="og:locale" content="zhn-CN">
+<meta property="og:image" content="https://lelloandluck.github.io/images/pythonEchart.png">
+<meta property="og:updated_time" content="2018-09-19T09:58:04.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何用Python设计专业的工作报告">
+<meta name="twitter:description" content="先来看下实例，这是我制作的月/季报模式，喜欢的话举个爪吧 ~~ 瞧瞧去！ 设计思路：   收集整理数据 -&amp;gt; 将数据转换为Python Echart图表 -&amp;gt; 设计Html报告页，将echart图标统一展示">
+<meta name="twitter:image" content="https://lelloandluck.github.io/images/pythonEchart.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lelloandluck.github.io/2018/09/19/如何用Python设计专业的工作报告/"/>
+
+
+
+
+
+  <title>如何用Python设计专业的工作报告 | <font face='STCAIYUN'>To make a difference life</font> <font color="green" size=3>welcome to alan's blog</font></title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zhn-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"><font face='STCAIYUN'>To make a difference life</font> <font color="green" size=3>welcome to alan's blog</font></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><A sprint for top experts in testing></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2018/09/19/如何用Python设计专业的工作报告/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan.yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font face='STCAIYUN'>To make a difference life</font> <font color="green" size=3>welcome to alan's blog</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何用Python设计专业的工作报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T12:00:30+08:00">
+                2018-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python自动化/" itemprop="url" rel="index">
+                    <span itemprop="name">python自动化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先来看下实例，这是我制作的月/季报模式，喜欢的话举个爪吧 ~~</p>
+<p><font size="14"><a href="/images/Retro.report/retrospective_Report.html">瞧瞧去！</a></font></p>
+<p><font face="微软雅黑" color="red" size="3">设计思路：</font></p>
+<ul>
+<li><font face="Gill Sans MT" color="#B20000"> 收集整理数据 -&gt; 将数据转换为Python Echart图表 -&gt; 设计Html报告页，将echart图标统一展示</font></li>
+<li><img src="/images/pythonEchart.png" alt="设计思路"></li>
+</ul>
+<a id="more"></a>
+<p>这里重点还是Python Echart图表的使用上，废话不说，直接上步骤吧 -</p>
+<ol>
+<li>安装python （这个不用我多说了吧 ~~）</li>
+<li>安装python pip (这个一般在安装python时会一并安装的，pip类似于node.js的npm，是python的一个包安装器，有了它会省去我们安装python的不少麻烦，至少不用单独下载安装包)</li>
+<li>安装echart （pip install pyechart）</li>
+<li>调用echart图标（下面详细说说这个的用法）</li>
+</ol>
+<p>Python Echart 使用详解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">from pyecharts import Bar, Line, Grid, Overlap, EffectScatter, Pie</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos; 1. *** 测试项目TCs 统计</span><br><span class="line">&gt;&gt;  下图实例找齐了Pie, Bar, Line 图常用的修改参数，请参考</span><br><span class="line">&gt;&gt;  下面各图表的参数设置，实际使用中并不是全部必须的，列在这里仅供参考</span><br><span class="line">***&apos;&apos;&apos;</span><br><span class="line"># from pyecharts import Bar, Line, Pie, Overlap, EffectScatter</span><br><span class="line">attr1 = [&apos;DEVDCMODULEMGT&apos;, &apos;GDS Service Portal AT&apos;, &apos;GDS运维管理&apos;, &apos;PPM Release1 AT&apos;, &apos;DCFM告警单验证AT&apos;, &apos;ECC集控中心&apos;, &apos;PPM Release2&apos;, &apos;CRS客户服务系统&apos;] # 测试项目</span><br><span class="line">val1 = [59, 1, 7, 4, 2, 276, 0, 0] # 各项目测试用例设计量pcs</span><br><span class="line"></span><br><span class="line">pie = Pie(&quot;TC Outputs Statistic&quot;, &quot;各项目测试用例统计&quot;, width = 1200, height = 500) # title_pos=&quot;center&quot;</span><br><span class="line">pie.add(&quot;TCs Output (单位:个)&quot;, attr1, val1,</span><br><span class="line">        legend_pos=&quot;2%&quot;, #  legend_pos : 图例位置 right, center, left, bottom, or X%</span><br><span class="line">        legend_top=&quot;25%&quot;,</span><br><span class="line">        is_label_show=True,</span><br><span class="line">        is_legend_show=True,</span><br><span class="line">        is_more_utils=True,</span><br><span class="line">        label_text_color=None, # &apos;red&apos; or &apos;green&apos;, ....</span><br><span class="line">        legend_orient=&apos;vertical&apos;, # legend_orient=&apos;vertical&apos; or &apos;horizontal&apos;</span><br><span class="line">        radius=[30, 65], #环形内外圆的半径</span><br><span class="line">        is_label_emphasis=True,</span><br><span class="line">        legend_text_size=12,</span><br><span class="line">        # width=1200, -- 这里定义width和height对整体图示不起作用，应该在调用图示对象时定义</span><br><span class="line">        # height=600,</span><br><span class="line">        # rosetype=&apos;radius&apos;, # 有&apos;radius&apos;和&apos;area&apos;两种模式, radius：扇区圆心角展现数据的百分比，半径展现数据的大小。 area：所有扇区圆心角相同，仅通过半径展现数据大小。</span><br><span class="line">        center=[50, 52], # 饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标，默认为 [50, 50]</span><br><span class="line">        legend_selectedmode=True, # 对图例点选操作禁止或打开</span><br><span class="line">)</span><br><span class="line">pie.render(&quot;1_ResourceforRetro/render1.html&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos; 2. *** 测试项目effort 统计 ***&apos;&apos;&apos;</span><br><span class="line"># from pyecharts import Bar, Line, Pie, Overlap</span><br><span class="line">attr2 = [&apos;DEVDCMODULEMGT&apos;, &apos;GDS Service Portal AT&apos;, &apos;GDS运维管理&apos;, &apos;PPM Release1 AT&apos;, &apos;DCFM告警单验证AT&apos;, &apos;ECC集控中心&apos;, &apos;PPM Release2&apos;, &apos;CRS客户服务系统&apos;]</span><br><span class="line">val2= [72, 16, 8, 24, 32, 220, 0, 0] # unit：hours</span><br><span class="line"></span><br><span class="line">bar = Bar(&quot;Test Effort Statistic&quot;, &quot;各项目测试工时统计&quot;, width = 1200, height = 500)</span><br><span class="line">bar.add(&quot;工时 (单位:小时)&quot;, attr2, val2, is_more_utils=True,</span><br><span class="line">        is_label_show=True,</span><br><span class="line">        legend_pos=&quot;right&quot;,</span><br><span class="line">        legend_top=&quot;5%&quot;,</span><br><span class="line">        width = 1200,</span><br><span class="line">        height = 600,</span><br><span class="line">        bar_category_gap=&quot;60%&quot;,</span><br><span class="line">        mark_point=[&apos;max&apos;, &apos;min&apos;], # or &apos;average&apos;</span><br><span class="line">        mark_line=[&apos;max&apos;],</span><br><span class="line">        is_datazoom_show=True,</span><br><span class="line">        is_label_emphasis=True,</span><br><span class="line">)</span><br><span class="line">bar.render(&quot;1_ResourceforRetro/render2.html&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos; 3. *** 测试项目Bugs 统计 ***&apos;&apos;&apos;</span><br><span class="line"># from pyecharts import Bar, Line, Pie, Overlap</span><br><span class="line">attr3 = [&apos;DEVDCMODULEMGT&apos;, &apos;GDS Service Portal AT&apos;, &apos;GDS运维管理&apos;, &apos;PPM Release1 AT&apos;, &apos;DCFM告警单验证AT&apos;, &apos;ECC集控中心&apos;, &apos;PPM Release2&apos;, &apos;CRS客户服务系统&apos;]</span><br><span class="line">val3 = [28, 0, 3, 4, 0, 79, 0, 0] # unit: pcs</span><br><span class="line"></span><br><span class="line">line = Line(&quot;Test Bug Statistic&quot;, &quot;各项目测试bug统计&quot;, width = 1200, height = 500)</span><br><span class="line">line.add(&quot;Bug (单位:个)&quot;, attr3, val3, is_more_utils=True,</span><br><span class="line">         # is_label_show=True,</span><br><span class="line">         # is_step=True,</span><br><span class="line">         yaxis_name=u&quot;Bug 个数&quot;,</span><br><span class="line">         # xaxis_name=&quot;项目&quot;,</span><br><span class="line">         # xaxis_margin=5,</span><br><span class="line">         # xaxis_name_pos=&quot;80%&quot;,</span><br><span class="line">         # is_radiusaxis_show=True,</span><br><span class="line">         is_area_show= True,</span><br><span class="line">         label_text_size=10,</span><br><span class="line">         # label_color=&quot;#12F23&quot;,</span><br><span class="line">         legend_pos=&quot;right&quot;,</span><br><span class="line">         legend_top=&quot;5%&quot;,</span><br><span class="line">         mark_point=[&apos;max&apos;, &apos;min&apos;, &apos;average&apos;], # or &apos;average&apos;</span><br><span class="line">         mark_point_symbol=&apos;arrow&apos;, # or &apos;arrow&apos;</span><br><span class="line">         # mark_point_symbolsize=10,</span><br><span class="line">         mark_point_textcolor=&apos;yellow&apos;,</span><br><span class="line">         mark_line=[&apos;max&apos;],</span><br><span class="line">         mark_line_symbolsize=10,</span><br><span class="line">         line_width=5,</span><br><span class="line">         # line_type=5,</span><br><span class="line">         line_color=&apos;green&apos;,</span><br><span class="line">         area_opacity=0.8,</span><br><span class="line">         line_opacity=0.4,</span><br><span class="line">         symbol_size=3,</span><br><span class="line">         # is_datazoom_show=True,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">es = EffectScatter(&quot;&quot;, width = 1200, height = 500)</span><br><span class="line">es.add(&quot;Bug statistic&quot;, attr3, val3,</span><br><span class="line">       symbol_size= 20,</span><br><span class="line">       effect_scale= 3.6,</span><br><span class="line">       effect_period= 3,</span><br><span class="line">       symbol= &quot;pin&quot;,</span><br><span class="line">       is_label_show= True,</span><br><span class="line">       label_color=&quot;red&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">bar1 = Bar(&quot;&quot;, width = 1000, height = 400)</span><br><span class="line">bar1.add(&quot;&quot;, attr3, val3, is_label_show=True, bar_category_gap=&quot;40%&quot;)</span><br><span class="line"></span><br><span class="line">overlap = Overlap(&quot;&quot;, width = 1200, height = 500)</span><br><span class="line">overlap.add(line)</span><br><span class="line">overlap.add(es)</span><br><span class="line"># overlap.add(bar)</span><br><span class="line">overlap.render(&quot;1_ResourceforRetro/render3.html&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">使用Grid（）对象可以将python chart图并列编排，需要注意的是gird_left, right, height, width 参数的设置，由此引起的各chart图参数设置的调整，建议不要用百分比，这个容易引起显示错位</span><br><span class="line">下图被注释的代码基本达到了希望的效果</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>每一个图标的render语句会在当前脚本目录下生成一个该图标的html报告，如 - render(“1_ResourceforRetro/render3.html”)，此路径可自定义，默认是当前脚本路径，报告格式是html，不可改成其他类型。</p>
+<p>获得了需要的图表报告后，接下来就是要将这些报告统一汇总在一张自定义的html文件中，下面是我上面demo图例中的自定义的html文件，不喜勿喷 @@@</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import os, sys</span><br><span class="line">from Common_Functions_Consolidation import *</span><br><span class="line"></span><br><span class="line">#1. create new path for retrosepective report and retrospective report will locate on the sme path with the scripts</span><br><span class="line"># **********************************************************************************************************************************************************</span><br><span class="line">scriptPath = os.getcwd()</span><br><span class="line">reportFilePath = os.path.join(scriptPath, &quot;retrospective_Report.html&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#2. Validate the folder &apos;&apos;htmlReport and see if it is being there already</span><br><span class="line"># **********************************************************************************************************************************************************</span><br><span class="line">print os.path.isdir(&quot;1_ResourceforRetro&quot;) # 文件夹名称是不分大小写的</span><br><span class="line">if os.path.isdir(&quot;1_ResourceforRetro&quot;) == False:</span><br><span class="line">    print &quot;There is no folder of &apos;1_ResourceforRetro&apos; there, please ensure you got this folder first before running this script!&quot;</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#3. Define retrospective report form by python</span><br><span class="line"># **********************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">reload(sys) # 这两句对字符一起可改变解析的字符编码风格</span><br><span class="line">sys.setdefaultencoding(&quot;utf-8&quot;) # 这两句对字符一起可改变解析的字符编码风格</span><br><span class="line"></span><br><span class="line">#3.1 define html header part of this report -</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">reportTitle = &quot;测试线阶段工作汇总 - Apr. ~ Jul.&quot;</span><br><span class="line">pythonWriteHtml_to_File_Part1(reportFilePath, reportTitle)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#3.2 define html body part which comes from &apos;htmlReport&apos; of this report -</span><br><span class="line">#  --------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">pythonWriteHtml_to_htmlReport(scriptPath, reportFilePath)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># #3.3 define html body part which comes from &apos;htmlReport_1&apos; of this report -</span><br><span class="line"># #  --------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"># anotherProjectName = &quot;DCFM 告警单重构&quot;</span><br><span class="line"># addSecondProjectReport_Header(reportFilePath, anotherProjectName)</span><br><span class="line"># addSecondProjectReport_Body(scriptPath, reportFilePath)</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">#4 define html ending part of this report -</span><br><span class="line">#  --------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">python_WriteHtml_to_File_Part2(reportFilePath)</span><br></pre></td></tr></table></figure>
+<p>这是上面代码中引用的包（Common_Functions_Consolidation）的相关函数实现-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br></pre></td><td class="code"><pre><span class="line">def pythonWriteHtml_to_File_Part1(reportFilePath, reportTitle):</span><br><span class="line">    # reportFilePath 是一个.html文件，这个文件通常由调用脚本生成</span><br><span class="line">    fo = open(reportFilePath, &quot;w+&quot;)  # 打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</span><br><span class="line">    # f.write(&quot;&lt;!DOCTYPE html&gt;\n&quot;)</span><br><span class="line">    # f.write(&quot;&lt;h1&gt;alan&lt;/h1&gt;&quot;)</span><br><span class="line">    # f.close()</span><br><span class="line"></span><br><span class="line">    htmlText = &quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    #header &#123;</span><br><span class="line">        background-color:black;</span><br><span class="line">        color:white;</span><br><span class="line">        text-align:left;</span><br><span class="line">        padding:5px;</span><br><span class="line">        font-family:Gill Sans MT;</span><br><span class="line">        font-size:22px</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #reportZone&#123;</span><br><span class="line">        width:1550px;</span><br><span class="line">        &lt;!--这个可以取消，不影响效果 --&gt;</span><br><span class="line">        align:left;</span><br><span class="line">        padding:5px;</span><br><span class="line">        font-family:Gill Sans MT;</span><br><span class="line">        font-size:12px	 	 </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .anotherProject&#123;</span><br><span class="line">        background-color:black;</span><br><span class="line">        color:white;</span><br><span class="line">        text-align:left;</span><br><span class="line">        padding:5px;</span><br><span class="line">        font-family:Gill Sans MT;</span><br><span class="line">        font-size:20px</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #footer &#123;</span><br><span class="line">        background-color:black;</span><br><span class="line">        color:white;</span><br><span class="line">        font-family:Gill Sans MT;</span><br><span class="line">        font-size:9px</span><br><span class="line">        text-align:left;</span><br><span class="line">        padding:2px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # for the animal text -</span><br><span class="line">    @keyframes blink&#123;</span><br><span class="line">    0%&#123;opacity: 1;&#125;</span><br><span class="line">    50%&#123;opacity: 1;&#125;</span><br><span class="line">    50.01%&#123;opacity: 0;&#125;</span><br><span class="line">    100%&#123;opacity: 0;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @-webkit-keyframes blink &#123;</span><br><span class="line">    0% &#123; opacity: 1; &#125;</span><br><span class="line">    50% &#123; opacity: 1; &#125;</span><br><span class="line">    50.01% &#123; opacity: 0; &#125;</span><br><span class="line">    100% &#123; opacity: 0; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @-moz-keyframes blink &#123;</span><br><span class="line">    0% &#123; opacity: 1; &#125;</span><br><span class="line">    50% &#123; opacity: 1; &#125;</span><br><span class="line">    50.01% &#123; opacity: 0; &#125;</span><br><span class="line">    100% &#123; opacity: 0; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @-ms-keyframes blink &#123;</span><br><span class="line">    0% &#123; opacity: 1; &#125;</span><br><span class="line">    50% &#123; opacity: 1; &#125;</span><br><span class="line">    50.01% &#123; opacity: 0; &#125;</span><br><span class="line">    100% &#123; opacity: 0; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @-o-keyframes blink &#123;</span><br><span class="line">    0% &#123; opacity: 1; &#125;</span><br><span class="line">    50% &#123; opacity: 1; &#125;</span><br><span class="line">    50.01% &#123; opacity: 0; &#125;</span><br><span class="line">    100% &#123; opacity: 0; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .blink&#123;</span><br><span class="line">    animation: blink .85s linear ease-in;</span><br><span class="line">    -webkit-animation: blink .75s ease-out infinite;</span><br><span class="line">    -moz-animation: blink .55s ease-out infinite;</span><br><span class="line">    -ms-animation: blink .65s ease-out infinite;</span><br><span class="line">    -o-animation: blink .45s ease-out infinite;</span><br><span class="line">    color: #F00;</span><br><span class="line">    font-size:18px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line"></span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;header&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&lt;hr/&gt;</span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    fo.write(htmlText)</span><br><span class="line">    fo.close()</span><br><span class="line"></span><br><span class="line">    fo = open(reportFilePath, &quot;a&quot;)  # 打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</span><br><span class="line">    fo.write(reportTitle)</span><br><span class="line"></span><br><span class="line">    htmlText = &quot;&quot;&quot;&lt;hr/&gt;&lt;/h2&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;reportZone&quot;&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    fo.write(htmlText)</span><br><span class="line">    fo.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">#  Purpose - 定义html的尾部div 代码部分</span><br><span class="line">#  Notice - 该文件夹和脚本是在同一目录下的</span><br><span class="line">#  Date - 2018. 06.16</span><br><span class="line">#  Author - Alan.yuan</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">def python_WriteHtml_to_File_Part2(reportFilePath):</span><br><span class="line">    # reportFilePath 是一个.html文件，这个文件通常由调用脚本生成</span><br><span class="line">    fo = open(reportFilePath, &apos;a&apos;)</span><br><span class="line">    htmlText = &quot;&quot;&quot;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;footer&quot;&gt;</span><br><span class="line">    &lt;p&gt;&amp;nbsp Copyright © GDS_TestCenter@163.com. All rights reserved. This consolidation based on our test outputs, and the datum come from Jira and Testlink, it&apos;s real and valid. Consolidated here, just want you know more about our Test line, sincerely hope the effort we contributed is indeed to relief you.&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">    &lt;/html&gt;</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    fo.write(htmlText)</span><br><span class="line">    fo.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">#  Purpose - 检查文件夹是否存在，如果存在就移除里面所有的文件， 注意是移除里面所有的文件，不是文件夹；如果该文件夹不存在，则创建该文件夹</span><br><span class="line">#  Notice - 该文件夹和脚本是在同一目录下的</span><br><span class="line">#  Date - 2018. 06.16</span><br><span class="line">#  Author - Alan.yuan</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">def checkFolder_and_RemoveAllFilesIncluded(folderName):</span><br><span class="line">#该函数检当前脚本目录下是否有制定的folder，如果没有则创建该folder；如果有则进入该folder删除里面所有的文件（注意是文件，不是文件夹）</span><br><span class="line">    import os, sys</span><br><span class="line">    if os.path.exists(os.getcwd() + &quot;\\&quot; + folderName) == True: # folderName - 指的是第一个存储测试报告文件夹 “htmlReport”</span><br><span class="line">        for file_Name in os.listdir(os.getcwd() + &quot;\\&quot; + folderName): # os.listdir(os.getcwd() + &quot;\htmlReport&quot;) - 该文件夹下包含的文件list</span><br><span class="line">            path_File = os.path.join(os.getcwd() + &quot;\\&quot; + folderName, file_Name)</span><br><span class="line">            if os.path.isfile(path_File):</span><br><span class="line">                os.remove(path_File)</span><br><span class="line">    else:</span><br><span class="line">        os.makedirs(os.getcwd() + &quot;\\&quot; + folderName)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">#  Purpose - 添加视图到body区，主要是&lt;image&gt; ... &lt;/image&gt; 部分代码</span><br><span class="line">#  Notice - 该文件夹和脚本是在同一目录下的</span><br><span class="line">#  Date - 2018. 06.16</span><br><span class="line">#  Author - Alan.yuan</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">def pythonWriteHtml_to_htmlReport(scriptPath, reportFilePath, listVal, listUnit):</span><br><span class="line">    htmlTextB = &quot;&quot;&quot;&lt;iframe src=\&quot;&quot;&quot;&quot;</span><br><span class="line">    htmlTextE = &quot;&quot;&quot;&quot; marginheight=&quot;2px&quot; marginwidth=&quot;2px&quot; width=&quot;1200&quot; height = &quot;500&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;br/&gt;&quot;&quot;&quot;</span><br><span class="line">    i = 0</span><br><span class="line">    dirs = os.listdir(scriptPath + &quot;\\1_ResourceforRetro&quot;)</span><br><span class="line">    for dir in dirs:</span><br><span class="line">        if os.path.isfile(os.path.join(scriptPath + &quot;\\1_ResourceforRetro&quot;, dir)):</span><br><span class="line">            fo = open(reportFilePath, &quot;a&quot;)</span><br><span class="line">            fo.write(&quot;&lt;h3&gt; &gt;&gt;&gt;截止目前，统计有 &lt;span class=\&quot;blink\&quot; &gt;%s &lt;/span&gt;%s  - &lt;/h3&gt;&quot;%(listVal[i], listUnit[i])) # listVal, listUnit元素个数必须和html 文件数相等，否则报溢出错误</span><br><span class="line">            # fo.write(&quot;&lt;span style=\&quot;border-color: green; border-width: 1px; border-style: solid; border-radius: 1px;\&quot;&gt;&quot;)</span><br><span class="line">            fo.write(htmlTextB)</span><br><span class="line">            fo.write(&quot;.\\1_ResourceforRetro\\&quot; + dir)</span><br><span class="line">            fo.write(htmlTextE)</span><br><span class="line">            fo.close()</span><br><span class="line">            i += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">#  Purpose - 添加第二个项目的html代码，主要是展示项目名称的&lt;div&gt; ... &lt;/idiv&gt; 部分代码</span><br><span class="line">#  Notice - 该文件夹和脚本是在同一目录下的</span><br><span class="line">#  Date - 2018. 06.16</span><br><span class="line">#  Author - Alan.yuan</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">def addSecondProjectReport_Header(reportFilePath, anotherProjectName):</span><br><span class="line">    htmlHeard_2B = &quot;&quot;&quot;&lt;br/&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!--Adding new project / task --&gt;</span><br><span class="line">    &lt;!--hr style = &quot;height:0px; border:none; border-top:10px solid #55555;&quot;/ --&gt;</span><br><span class="line">    &lt;hr style=&quot;height:0px;border:none;border-top:10px groove skyblue;&quot; /&gt;</span><br><span class="line">    &lt;div class = &quot;anotherProject&quot;&gt;&lt;b&gt;&quot;&quot;&quot;</span><br><span class="line">    htmlHeard_2E = &quot;&quot;&quot;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    fo = open(reportFilePath, &quot;a&quot;)</span><br><span class="line">    fo.write(htmlHeard_2B)</span><br><span class="line">    fo.write(anotherProjectName)</span><br><span class="line">    fo.write(htmlHeard_2E)</span><br><span class="line">    fo.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">#  Purpose - 添加第二个项目的html代码，主要是图示的&lt;image&gt; ... &lt;/image&gt; 部分代码</span><br><span class="line">#  Notice - 该文件夹和脚本是在同一目录下的</span><br><span class="line">#  Date - 2018. 06.16</span><br><span class="line">#  Author - Alan.yuan</span><br><span class="line">#  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">def addSecondProjectReport_Body(scriptPath, reportFilePath):</span><br><span class="line">    html2B = &quot;&quot;&quot;&lt;iframe src=\&quot; &quot;&quot;&quot;</span><br><span class="line">    html2E = &quot;&quot;&quot;&quot;marginheight=&quot;20px&quot; marginwidth=&quot;50px&quot; width=&quot;1450&quot; height = &quot;550&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;br/&gt;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    dirs = os.listdir(scriptPath + &quot;\htmlReport_1&quot;)</span><br><span class="line">    for dir in dirs:</span><br><span class="line">        if os.path.isfile(os.path.join(scriptPath + &quot;\htmlReport_1&quot;, dir)):</span><br><span class="line">            fo = open(reportFilePath, &quot;a&quot;)</span><br><span class="line">            fo.write(html2B)</span><br><span class="line">            fo.write(&quot;.\htmlReport_1\\&quot; + dir)</span><br><span class="line">            fo.write(html2E)</span><br><span class="line">            fo.close()</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python开发/" rel="tag"># Python开发</a>
+          
+            <a href="/tags/python测试/" rel="tag"># python测试</a>
+          
+            <a href="/tags/python-echart/" rel="tag"># python echart</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/17/测试管理修炼之搭建测试管理平台Testlink/" rel="next" title="测试管理修炼之搭建测试管理平台Testlink">
+                <i class="fa fa-chevron-left"></i> 测试管理修炼之搭建测试管理平台Testlink
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/20/hello-world/" rel="prev" title="How to build up a personality blog ?">
+                How to build up a personality blog ? <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Alan.yuan" />
+            
+              <p class="site-author-name" itemprop="name">Alan.yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yourname" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://vk.com/yourname" target="_blank" title="VK Group">
+                      
+                        <i class="fa fa-fw fa-vk"></i>VK Group</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alan.yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
