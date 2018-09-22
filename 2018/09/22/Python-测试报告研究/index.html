@@ -111,18 +111,18 @@
 
 
 
-<meta name="description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装 pip install html_testRunner*.whl  另一种是直接官网下载te">
+<meta name="description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装  pip install html_testRunner*.whl  另一种是直接官网下载t">
 <meta name="keywords" content="python,测试报告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 测试报告研究">
 <meta property="og:url" content="https://lelloandluck.github.io/2018/09/22/Python-测试报告研究/index.html">
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
-<meta property="og:description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装 pip install html_testRunner*.whl  另一种是直接官网下载te">
+<meta property="og:description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装  pip install html_testRunner*.whl  另一种是直接官网下载t">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:updated_time" content="2018-09-21T17:40:37.514Z">
+<meta property="og:updated_time" content="2018-09-22T01:14:44.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 测试报告研究">
-<meta name="twitter:description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装 pip install html_testRunner*.whl  另一种是直接官网下载te">
+<meta name="twitter:description" content="HTMLTestRunner 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 - 下载和安装  有两种方式，一种是直接pip管道安装  pip install html_testRunner*.whl  另一种是直接官网下载t">
 
 
 
@@ -432,32 +432,40 @@
         <p><font size="4" color="red"><b>HTMLTestRunner</b></font> 是Python的一个标准库，是unittest单元测试的一个框架扩展，顾名思义，它是用它来生成漂亮的单元测试报告的，千万别小看测试报告，赏心悦目的报告能给测试增色不少，一起来看看HTMLTestRunner是如何工作的吧 -</p>
 <p><b>下载和安装</b></p>
 <ul>
-<li>有两种方式，一种是直接pip管道安装</li>
+<li><p>有两种方式，一种是直接pip管道安装</p>
+<ol>
 <li><p>pip install html_testRunner*.whl</p>
 </li>
 <li><p>另一种是直接<a href="https://pypi.python.org/pypi/HTMLTestRunner" target="_blank" rel="noopener">官网下载</a>testruner相应的py文件（Python 模块文件），然后放在安装目录的lib下即可windows:下载HTMLTestRunner.py 文件,放在python目录下的lib文件夹, 例如\Python27\Lib</p>
 </li>
+</ol>
+</li>
 </ul>
-<p><b>实例参考Demo</b></p>
-<ul>
-<li><p>下面给出一个使用例子，这也是单元测试的常见写法，请留意</p>
+<p><b>实例参考</b></p>
 <ol>
-<li><p>引入相关模块（modules）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import unittest</span><br><span class="line">import HTMLTestRunner,sys,StringIO</span><br></pre></td></tr></table></figure>
+<li><p>下面给出一个使用例子，这也是单元测试的常见写法，请留意</p>
+<ul>
+<li>1.1 引入相关模块（modules）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import unittest</span><br><span class="line">import HTMLTestRunner,sys,StringIO</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p><br></p>
 <a id="more"></a>
-</li>
-<li><p>单元测试用例实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  #测试用例</span><br><span class="line">  class MyTestCase(unittest.TestCase):</span><br><span class="line">     def setUp(self):</span><br><span class="line">         pass</span><br><span class="line"></span><br><span class="line">     def tearDown(self):</span><br><span class="line">         pass</span><br><span class="line"></span><br><span class="line">     def testCase1(self):</span><br><span class="line">         self.assertEqual(2,3,&quot;thest both number are not equal, so, this message should show here&quot;)</span><br><span class="line"></span><br><span class="line">     def testCase2(self):</span><br><span class="line">         self.assertNotEqual(2,3,&quot;the both number i given are not equal. so here this message should show here!&quot;)</span><br><span class="line"></span><br><span class="line">     def testCase3(self):</span><br><span class="line">         self.assertIs(&apos;a&apos;, &apos;a&apos;, &quot;&apos;a&apos; is  &apos;a&apos;, so assert &apos;self.assertIs(a, a, msg)&apos;shouldn&apos;t show this message.&quot;)</span><br><span class="line"></span><br><span class="line">     def testCase4(self):</span><br><span class="line">         self.assertIn(&apos;y&apos;, &apos;Alan&apos;, &quot;error message - self.assertIn(&apos;y&apos;, &apos;Alan&apos;, &apos;msg&apos;) doesn&apos;t work here, so show this message&quot;)</span><br><span class="line"></span><br><span class="line">     def TestCase5(self):</span><br><span class="line">         self.assertNotIn(&apos;a&apos;, &apos;Alan&apos;, &quot;error message -  self.assertNotIn(&apos;a&apos;, &apos;Alan&apos;, &apos;msg&apos;) doesnt work, so show this message&quot;)</span><br><span class="line">    ```     </span><br><span class="line">&lt;BR/&gt;</span><br><span class="line">   2.1 #添加Suite</span><br></pre></td></tr></table></figure>
-<p>def Suite():<br>   suiteTest = unittest.TestSuite()<br>   suiteTest.addTest(MyTestCase(“testCase1”))<br>   suiteTest.addTest(MyTestCase(“testCase2”))<br>   suiteTest.addTest(MyTestCase(“testCase3”))<br>   suiteTest.addTest(MyTestCase(“testCase4”))<br>   suiteTest.addTest(MyTestCase(“TestCase5”))<br>   return suiteTest</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   &lt;BR/&gt;</span><br><span class="line"></span><br><span class="line">3. 调用TestRunner生成测试报告</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>  #确定生成报告的路径<br>  filePath = “c:/Users/Luck_Lello/Desktop/pyResult.html”<br>  fp = file(filePath,’wb’)</p>
-<p>  #生成报告的Title,描述<br>  runner = HTMLTestRunner.HTMLTestRunner(stream=fp,title=’Automation Test Report for Python’,description=’This is the Report created by Alan.Yuan’)<br>runner.run(Suite())<code>`</code></p>
-<p>  这个基本上就是HTMLTestRunner模块的基本用法，当然报表生成后，还可以对其进行美化，结合css和pyechart可以做出更加生动的报告来。关于这部分的结合，下次有机会再继续分享.</p>
+<ul>
+<li>1.2 单元测试用例实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#测试用例</span><br><span class="line"> class MyTestCase(unittest.TestCase):</span><br><span class="line">    def setUp(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def tearDown(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def testCase1(self):</span><br><span class="line">        self.assertEqual(2,3,&quot;thest both number are not equal, so, this message should show here&quot;)</span><br><span class="line"></span><br><span class="line">    def testCase2(self):</span><br><span class="line">        self.assertNotEqual(2,3,&quot;the both number i given are not equal. so here this message should show here!&quot;)</span><br><span class="line"></span><br><span class="line">    def testCase3(self):</span><br><span class="line">        self.assertIs(&apos;a&apos;, &apos;a&apos;, &quot;&apos;a&apos; is  &apos;a&apos;, so assert &apos;self.assertIs(a, a, msg)&apos;shouldn&apos;t show this message.&quot;)</span><br><span class="line"></span><br><span class="line">    def testCase4(self):</span><br><span class="line">        self.assertIn(&apos;y&apos;, &apos;Alan&apos;, &quot;error message - self.assertIn(&apos;y&apos;, &apos;Alan&apos;, &apos;msg&apos;) doesn&apos;t work here, so show this message&quot;)</span><br><span class="line"></span><br><span class="line">    def TestCase5(self):</span><br><span class="line">        self.assertNotIn(&apos;a&apos;, &apos;Alan&apos;, &quot;error message -  self.assertNotIn(&apos;a&apos;, &apos;Alan&apos;, &apos;msg&apos;) doesnt work, so show this message&quot;)</span><br><span class="line"> ```     </span><br><span class="line"> &lt;BR/&gt;</span><br><span class="line"></span><br><span class="line">- 1.3 #添加Suite</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>def Suite():<br> suiteTest = unittest.TestSuite()<br> suiteTest.addTest(MyTestCase(“testCase1”))<br> suiteTest.addTest(MyTestCase(“testCase2”))<br> suiteTest.addTest(MyTestCase(“testCase3”))<br> suiteTest.addTest(MyTestCase(“testCase4”))<br> suiteTest.addTest(MyTestCase(“TestCase5”))<br> return suiteTest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BR/&gt;</span><br><span class="line"></span><br><span class="line">- 1.4 调用TestRunner生成测试报告</span><br></pre></td></tr></table></figure>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br> #确定生成报告的路径<br> filePath = “c:/Users/Luck_Lello/Desktop/pyResult.html”<br> fp = file(filePath,’wb’)</p>
+<p> #生成报告的Title,描述<br> runner = HTMLTestRunner.HTMLTestRunner(stream=fp,title=’Automation Test Report for Python’,description=’This is the Report created by Alan.Yuan’)<br>runner.run(Suite())<br><code>`</code></p>
+<ul>
+<li><blockquote>
+<p><b>小结：</b><br>这个基本上就是HTMLTestRunner模块的基本用法，当然报表生成后，还可以对其进行美化，结合css和pyechart可以做出更加生动的报告来。关于这部分的结合，下次有机会再继续分享.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
