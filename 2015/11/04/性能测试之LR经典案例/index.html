@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="性能测试,Performance Testing,LR," />
 
 
 
@@ -111,20 +111,18 @@
 
 
 
-<meta name="description" content="记录是个良好的习惯，及时地将工作和学习中的知识点记录下来，不仅能加深记忆还能帮助理解，俗话说得好，好记性不如烂笔头，不爱笔记三天学习两天忘记。现实中人们记录的方式有很多，最常用的莫过于博客了，当然现在提供博客服务的网站有很多，但大多千篇一律，不够个性化，为了不受限于各大平台，搭建个人定制化的博客很有必要，这里给大家介绍一种当下流行的，比较有逼格的个性化博客定制方案Hexo+Github Pages">
-<meta name="keywords" content="QA, SW Test, Automation Test, QTP, UFT, Python, QC, Test Expert, 软件测试, 软件测试专家, 自动化测试专家, 测试经理, 测试管理, 软件自动化测试">
+<meta name="description" content="Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。">
+<meta name="keywords" content="性能测试,Performance Testing,LR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to build up a personality blog ?">
-<meta property="og:url" content="https://lelloandluck.github.io/2016/09/22/hello-world/index.html">
+<meta property="og:title" content="性能测试之LR经典案例">
+<meta property="og:url" content="https://lelloandluck.github.io/2015/11/04/性能测试之LR经典案例/index.html">
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
-<meta property="og:description" content="记录是个良好的习惯，及时地将工作和学习中的知识点记录下来，不仅能加深记忆还能帮助理解，俗话说得好，好记性不如烂笔头，不爱笔记三天学习两天忘记。现实中人们记录的方式有很多，最常用的莫过于博客了，当然现在提供博客服务的网站有很多，但大多千篇一律，不够个性化，为了不受限于各大平台，搭建个人定制化的博客很有必要，这里给大家介绍一种当下流行的，比较有逼格的个性化博客定制方案Hexo+Github Pages">
+<meta property="og:description" content="Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:image" content="https://lelloandluck.github.io/images/hexodefault.jpg">
-<meta property="og:updated_time" content="2018-09-22T13:43:43.719Z">
+<meta property="og:updated_time" content="2018-09-24T12:38:49.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to build up a personality blog ?">
-<meta name="twitter:description" content="记录是个良好的习惯，及时地将工作和学习中的知识点记录下来，不仅能加深记忆还能帮助理解，俗话说得好，好记性不如烂笔头，不爱笔记三天学习两天忘记。现实中人们记录的方式有很多，最常用的莫过于博客了，当然现在提供博客服务的网站有很多，但大多千篇一律，不够个性化，为了不受限于各大平台，搭建个人定制化的博客很有必要，这里给大家介绍一种当下流行的，比较有逼格的个性化博客定制方案Hexo+Github Pages">
-<meta name="twitter:image" content="https://lelloandluck.github.io/images/hexodefault.jpg">
+<meta name="twitter:title" content="性能测试之LR经典案例">
+<meta name="twitter:description" content="Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。">
 
 
 
@@ -154,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="https://lelloandluck.github.io/2016/09/22/hello-world/"/>
+  <link rel="canonical" href="https://lelloandluck.github.io/2015/11/04/性能测试之LR经典案例/"/>
 
 
 
 
 
-  <title>How to build up a personality blog ? | <img src="/images/Icon.jpg" alt="Welcome back"><font face='STCAIYUN'><br/>To make a difference life</font> <br/><font color="yellow" size=4>Welcome to alan's blog</font></title>
+  <title>性能测试之LR经典案例 | <img src="/images/Icon.jpg" alt="Welcome back"><font face='STCAIYUN'><br/>To make a difference life</font> <br/><font color="yellow" size=4>Welcome to alan's blog</font></title>
   
 
 
@@ -331,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2016/09/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2015/11/04/性能测试之LR经典案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alan.yuan">
@@ -348,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">How to build up a personality blog ?</h1>
+          <h1 class="post-title" itemprop="name headline">性能测试之LR经典案例</h1>
         
 
         <div class="post-meta">
@@ -360,8 +358,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-22T20:35:20+08:00">
-                2016-09-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-04T20:25:36+08:00">
+                2015-11-04
               </time>
             
 
@@ -370,6 +368,50 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/性能测试/" itemprop="url" rel="index">
+                    <span itemprop="name">性能测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/性能测试/Performance-Testing/" itemprop="url" rel="index">
+                    <span itemprop="name">Performance Testing</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/性能测试/Performance-Testing/LR/" itemprop="url" rel="index">
+                    <span itemprop="name">LR</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -398,35 +440,65 @@
       
 
       
-        <p>记录是个良好的习惯，及时地将工作和学习中的知识点记录下来，不仅能加深记忆还能帮助理解，俗话说得好，好记性不如烂笔头，不爱笔记三天学习两天忘记。现实中人们记录的方式有很多，最常用的莫过于博客了，当然现在提供博客服务的网站有很多，但大多千篇一律，不够个性化，为了不受限于各大平台，搭建个人定制化的博客很有必要，这里给大家介绍一种当下流行的，比较有逼格的个性化博客定制方案Hexo+Github Pages，当然不在乎形式的童鞋请略过。</p>
-<h2 id="Quick-Start-With-A-Personal-Blog"><a href="#Quick-Start-With-A-Personal-Blog" class="headerlink" title="Quick Start With A Personal Blog"></a>Quick Start With A Personal Blog</h2><a id="more"></a>
-<h3 id="Precondition"><a href="#Precondition" class="headerlink" title="Precondition"></a>Precondition</h3><h4 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title=" 什么是 Hexo？"></a><font color="#0000dd"> 什么是 Hexo？</font></h4><ul>
-<li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</li>
+        <p>Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。</p>
+<a id="more"></a>
+<h6 id="典型案例"><a href="#典型案例" class="headerlink" title="典型案例"></a>典型案例</h6><p>关于Web Service的案例，通常我们遇到最多的Cases类似于下面的步骤，这应该是Web Services的标准测试步骤了，也是PT中测试WebService最常用的步骤。先来了解下，后面再来看怎么脚本实现。</p>
+<ol>
+<li>Case One –<ul>
+<li>Step1： Get WSDL from URL、File、UDDI （<a href="http://mdm-itg.houston.hp.com:8180/customer-" target="_blank" rel="noopener">http://mdm-itg.houston.hp.com:8180/customer-</a><br>manager/services/CompetitorService?wsdl）</li>
+<li>Step2：Initialize Parameters with Customer IDs</li>
+<li>Step3：Execute Search operation to get the response</li>
 </ul>
-<h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a><font color="#0000dd">安装前提</font></h4><ul>
-<li>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：</li>
-<li>• Node.js</li>
-<li>• Git</li>
+</li>
+</ol>
+<ol start="2">
+<li>Case two –<br>关于HTML的案例，这部分Cases包含的情况很多，主要是因为基于Html的操作很普遍，比喻页面登录，查找，比较，搜索等等，都是常见的测试，这里我也提炼了一些基本的步骤，不一定全面，但却是可以代表很大一部分基于Html操作的PT方案。<ul>
+<li>Step1：Get the URL for portal</li>
+<li>Step2：Login with account</li>
+<li>Step3：Initialize with Pramenters</li>
+<li>Step4：Execute Searching and get the response</li>
 </ul>
+</li>
+</ol>
+<p>上面两中情况的性能测试在软件测试中出现的比率很高。熟练理解和编写这类脚本可以让我们轻松对付performance测试中80%以上的Cases. （呵呵。。。别拍砖，个人就是这么认为的）</p>
+<p>这部分内容要怎么介绍呢？采取类似于AT的，一个案例一个案例的说比较乏味，也不太容易理解。因为基本上就是脚本代码重复Copy和Review。不具有参考性。还是围绕这两类Cases步骤，以及与其相关的知识点逐一展开吧。</p>
+<h6 id="脚本设计"><a href="#脚本设计" class="headerlink" title="脚本设计"></a>脚本设计</h6><p>Performance 测试不同于AT，通常我们主张用Recording的办法来录制脚本，这样做不仅可以节省时间，而且对脚本中的各种Action（如 .CSS , .Do，.Json或者Jave Script， Asp等等控件）能够很好的识别。对于脚本的维护也是显而易见的。请看下面的脚本实现。</p>
+<p>####### <font color="red">For Case one – </font></p>
 <ul>
-<li>备注下， Node.js 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言, 它也是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
-<li>因为hexo是一款基于Node.js的静态博客框架，所以在使用hexo搭建博客站点时，必须要先安装Node.js进行解析，而Git提供了分布式版本管理的实现，包括生成，启动服务，部署等操作，基于node.js的hexo博客是需要类似于Git的工具来实现网站的发布和管理的，当然DOS-Mode下也是可以的。</li>
+<li>1.）录制WebService脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">web_service_call( &quot;StepName=customSearchLookupService_101&quot;,</span><br><span class="line">&quot;SOAPMethod=CustomerLookupEnWebServiceService|CustomerLookupEnWebSe</span><br><span class="line"> rvicePort|customSearchLookupService&quot;,</span><br><span class="line">&quot;ResponseParam=response&quot;,</span><br><span class="line">&quot;Service=CustomerLookupEnWebServiceService&quot;,</span><br><span class="line">&quot;ExpectedResponse=SoapResult&quot;,</span><br><span class="line">&quot;Snapshot=t1395726342.inf&quot;,</span><br><span class="line">BEGIN_ARGUMENTS,</span><br><span class="line">&quot;xml:customSearchLookupService1=&quot;</span><br><span class="line">    &quot;&lt;customSearchLookupService1&gt;&quot;</span><br><span class="line">        &quot;&lt;customerId&gt;&#123;CustomerId&#125;&lt;/customerId&gt;&quot;</span><br><span class="line">    &quot;&lt;/customSearchLookupService1&gt;&quot;,</span><br><span class="line">END_ARGUMENTS,</span><br><span class="line">BEGIN_RESULT,</span><br><span class="line">END_RESULT,</span><br><span class="line">LAST);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>完成上面步骤后，本地选择一个文件夹作为blog根目录，然后启动git cmd, Dos-Mode 或 git bash（多数用git bash）执行如下hexo命令，创建本地博客框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd D:\myblog_repository # 假定你的blog仓库为 myblog_repository</span><br><span class="line">$ hexo init # 初始化blog site</span><br><span class="line">$ nmp install XXXXpackages # 根据上一步的提示安装相应的依赖包</span><br></pre></td></tr></table></figure></p>
-<p>上面的安装步骤下来，如果没有报错，你的blog环境配置就完成了。接下来只需运行几个命令就可以生成默认静态页面了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hexo clean /hexo c</span><br><span class="line">Hexo generate /hexo g</span><br><span class="line">Hexo deploy /hexo d</span><br><span class="line">Hexo server /hexo s</span><br></pre></td></tr></table></figure></p>
-<p>在本地浏览器下输入localhost：4000,回车后看看能不能看到hello world页面，如果能看到，恭喜你！博客本地架构已生效，可以开始专注写博客了。<br> <img src="/images/hexodefault.jpg" alt="hexo hello world" title="hexo default"></p>
-<h3 id="Basic-Hexo-Syntax"><a href="#Basic-Hexo-Syntax" class="headerlink" title="Basic Hexo Syntax"></a>Basic Hexo Syntax</h3><h4 id="Create-a-new-page-post"><a href="#Create-a-new-page-post" class="headerlink" title="Create a new page/post"></a>Create a new page/post</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常用几种写法 -</span><br><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo new page <span class="string">"tags"</span></span><br><span class="line">$ hexo new post <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h4 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h4 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h4 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h4 id="小结一下："><a href="#小结一下：" class="headerlink" title="小结一下："></a><font color="#0000dd">小结一下：</font></h4><blockquote>
-<p>Hexo就是一个Nodejs的产品，用它可以方便快捷的生成静态页面，而github的pages又可以为静态页面提供展示和域名空间服务，并且能很好地支持Markdown文法，这就为个性化定制blog提供了绝好的机会。blog的精神在于内容，高效的写作博文还需要掌握一些基本技能，如Yaml文法，Markdown基本语法以及页面格式和编排的Html，CSS文法等等，这些我将在后续的博文中陆续介绍。</p>
-</blockquote>
+<p>注意Web_Service_Call 用法,从面试的语法可知，Web_Service_Call 通常由<br>ExpectedResponse<br>specifications<br>StepName<br>参数构成，其他的都是optional. 用户可以根据实际情况选择使用。每个参数的定义可以从Help文档中查询，（F1: 查询函数用法）</p>
+<ul>
+<li><p>2.）设置Checkpoint</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getValuefromResponse = lr_xml_find(&quot;XML=&#123;response&#125;&quot;,</span><br><span class="line">&quot;Query=/Envelope[1]/Body[1]/customSearchLookupServiceResponse[1]/customerSearchLookup ResultGroup[1]/externalProfileGroup[1]/externalProfileLocatorBusinessLocatorNumber[1]/text()[1]&quot;,</span><br><span class="line"> &quot;Value=0709898899&quot;,</span><br><span class="line"> LAST);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.）判断Checkpoint的条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (getValuefromResponse == 1)&#123;</span><br><span class="line">    lr_end_transaction(&quot;RequestAndResponse&quot;, LR_PASS);</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    lr_end_transaction(&quot;RequestAndResponse&quot;, LR_FAIL);</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>录制和设置Chekcpioint部分可以直接使用LR的界面完成，第三部需要手工编写Checkpoint条件。根据函数的语法（参见上面3.2部分内容）其实也不难完成。</p>
+<p>Note：再次体会LR C语法的基本特点，每条语句都以分号结束。小括号内的每一参数赋值均已逗号结束，并且每条语句必须以双引号引用起来。引用变量值使用大括号{ }。另外，如果双引号里的内容又是被上引号引用的，那么就需要用反斜杠 “/”进行转换。（这在LR的help文件里有详细说明）</p>
+<p>####### <font color="red">For Case Two –</font><br>这部分脚本完全是手工编写的，目的就是如何利用上面介绍的函数来编写LR脚本。（如果可以录制的话，还是建议录制的办法，这里介绍的手工编写代码，仅供那些不能录制脚本的情况作为参考）</p>
+<p>1.）Login URL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">使用”Action Function – Web_Submit_Data“函数发送URL请求</span><br><span class="line">    web_submit_data(&quot;login.pl&quot;,</span><br><span class="line">        &quot;Action=https://it-services-itg.external.hp.com/auth/login.pl&quot;,</span><br><span class="line">        &quot;Method=POST&quot;,</span><br><span class="line">        &quot;RecContentType=text/html&quot;,</span><br><span class="line">        &quot;Referer=&quot;,</span><br><span class="line">        &quot;Snapshot=t5.inf&quot;,</span><br><span class="line">        &quot;Mode=HTML&quot;,</span><br><span class="line">        &quot;EncodeAtSign=YES&quot;,</span><br><span class="line">        ITEMDATA,</span><br><span class="line">        &quot;Name=action&quot;, &quot;Value=logon&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=deviceos&quot;, &quot;Value=2.0.0&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=devicetype&quot;, &quot;Value=TouchPad&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=deviceNDUID&quot;, &quot;Value=123&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=user&quot;, &quot;Value=your email address&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=password&quot;, &quot;Value=your nt account&quot;, ENDITEM,</span><br><span class="line">        &quot;Name=osType&quot;, &quot;Value=WebOS&quot;, ENDITEM,</span><br><span class="line">        LAST);</span><br></pre></td></tr></table></figure></p>
+<p>注意相关参数的设置，同样可以参考Help文档设置Web_Submit_Data函数。接下来就是Search操作了，由下面的函数实现。</p>
+<p>2.）Search with the specified initialization<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">web_reg_find(&quot;Search=Body&quot;,</span><br><span class="line">        &quot;SaveCount=findcount&quot;,</span><br><span class="line">        &quot;Text=SDGT&quot;,</span><br><span class="line">        LAST);</span><br><span class="line"></span><br><span class="line"> status = web_url(&quot;rplAnywhere-web&quot;,</span><br><span class="line">        &quot;URL=https://it-services-itg.external.hp.com/onebox/rplAnywhere-</span><br><span class="line">         web_1_0_0/services/rpl?name=BIN%20LADEN&amp;countryCode=US&quot;,</span><br><span class="line">        &quot;Resource=0&quot;,</span><br><span class="line">        &quot;RecContentType=text/html&quot;,</span><br><span class="line">        &quot;Referer=&quot;,</span><br><span class="line">        &quot;Snapshot=t6.inf&quot;,</span><br><span class="line">        &quot;Mode=HTML&quot;,</span><br><span class="line">        LAST);</span><br></pre></td></tr></table></figure></p>
+<p>对照Web_URL语法，这里对三个必要参数赋值- Step Name, URL 和 Attribute list. 除了这个函数外，还可以用其他函数如 web_submit_data, web_URL 代替。他们都属于Action Function. 同样可达到发送URL请求的目的。</p>
+<p>接下来就是Checkpoint检查了，代码如下</p>
+<ol start="3">
+<li>) Checkpoint Setting and Validation<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lr_output_message(&quot;request status :%d&quot;, status);</span><br><span class="line">lr_output_message(&quot;find count :%d&quot;, atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)));</span><br><span class="line"></span><br><span class="line">if (atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)) &gt; 0)&#123;//check the times of finding &apos;SDGT&apos; string</span><br><span class="line">        lr_output_message(&quot;found the value at the return page&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_PASS);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        lr_output_message(&quot;found fail&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_FAIL);                </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此处的函数的理解可参考上面的解析。这里不再重复了。到此为止，两种案例的代码实现介绍完毕，是不是还是感觉云里雾里？很正常，这主要是因为LR的C实现函数参数太多，而且使用起来也不是很有感觉。</p>
+<p>比喻说调用Web_Custom_request函数发送URL请求。那么函数Web_Custom_request到底该参数化哪些参数？每个参数的值该如何获取？还是没有一个直观的认识。这也是你尽管看了上面那些函数解析后后任然不知所措的根本所在。这是个难点。但我们有办法破解 </p>
+<p>方法一： 如何识别哪些方法需要被Action Function提取<br>        这是手工开发LR代码的必要步骤，你首先要知道哪些页面方法需要被Action Function提取，找出这些方法，然后调用Action Function函数予以实现。难就难在找出这些方法上。看好下面的介绍，解决上面问题的solution就要出来了 –</p>
+<pre><code>进入相关页面，进入代码视图，进入Network视图，反复操作页面，看哪些方法的response是关联下一个步骤的。把这些方法提出来，一 一调用Action Function 函数予以实现。 好了这就是要领 。(这里主要是针对record困难的Chrome环境。 按F12进入)
+不知道？还是不知道？那你打开一个GUI界面（IE或者Chrome都可以）进入代码视图模式，反复进行页面操作（如login），然后在Network视图里看看哪些方法被识别出来了，再看看这些方法的response，有哪些跟下一步骤的界面相关。提出来。这就是Action Function的函数要去实现的步骤。就这么简单。实在不会的话，就按照上面的介绍反复操练吧，知道熟练找出页面方法为止。
+</code></pre><p>方法二： 如何识别哪些方法需要被Action Function提取<br>        请使用第三方工具来帮助提取。这里推荐使用Fiddler工具，这个工具可以很方便的看出页面操作对象以及方法属性。用它可以提高我们的代码开发效率，有兴趣的童鞋不妨试试。个人感觉还是不错的。</p>
+<pre><code>使用它可以帮我们快速找出页面相关元素，以及相应方法，找到这些方法和元素后，跟方法 一 一样，我们需要将这些方法和元素以函数的形式表述出来。
 
+这就是LR C脚本开发应该遵行的规则。当然如果能record的话，还是建议大家record。毕竟系统自动抓出的方法和属性要比手工去添加的来得快和准。
+</code></pre>
       
     </div>
     
@@ -478,6 +550,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/性能测试/" rel="tag"># 性能测试</a>
+          
+            <a href="/tags/Performance-Testing/" rel="tag"># Performance Testing</a>
+          
+            <a href="/tags/LR/" rel="tag"># LR</a>
+          
+        </div>
+      
 
       
       
@@ -487,8 +569,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/20/测试管理修炼之测试管理体系建设/" rel="next" title="测试管理修炼之测试管理体系建设">
-                <i class="fa fa-chevron-left"></i> 测试管理修炼之测试管理体系建设
+              <a href="/2015/09/24/自动化测试流程/" rel="next" title="自动化测试流程">
+                <i class="fa fa-chevron-left"></i> 自动化测试流程
               </a>
             
           </div>
@@ -497,8 +579,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/19/测试管理修炼之如何成为一名优秀的测试总监/" rel="prev" title="测试管理修炼之如何成为一名优秀的测试总监">
-                测试管理修炼之如何成为一名优秀的测试总监 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/08/测试管理修炼之Agile开发模式/" rel="prev" title="测试管理修炼之Agile开发模式">
+                测试管理修炼之Agile开发模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -688,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start-With-A-Personal-Blog"><span class="nav-number">1.</span> <span class="nav-text">Quick Start With A Personal Blog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Precondition"><span class="nav-number">1.1.</span> <span class="nav-text">Precondition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-Hexo？"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 什么是 Hexo？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装前提"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装前提</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Hexo-Syntax"><span class="nav-number">1.2.</span> <span class="nav-text">Basic Hexo Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-new-page-post"><span class="nav-number">1.2.1.</span> <span class="nav-text">Create a new page/post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.2.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.2.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结一下："><span class="nav-number">1.2.5.</span> <span class="nav-text">小结一下：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#典型案例"><span class="nav-number">1.</span> <span class="nav-text">典型案例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#脚本设计"><span class="nav-number">2.</span> <span class="nav-text">脚本设计</span></a></li></ol></div>
             
 
           </div>
