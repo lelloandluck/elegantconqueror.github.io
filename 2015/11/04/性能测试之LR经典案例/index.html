@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
 <meta property="og:description" content="Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:updated_time" content="2018-09-24T12:46:12.075Z">
+<meta property="og:updated_time" content="2018-09-24T12:48:28.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能测试之LR经典案例">
 <meta name="twitter:description" content="Performance 测试也是自动化测试的一个重点领域，了解和掌握这一部分内容，也是完善自动化测试技能的一个补充。Performance测试包含的内容很多，这可以从其支持的协议看出。但日常测试中往往集中在HTML，WebService等协议，这里我将以实际的测试用例来详细介绍如何利用LR（Load Runner）来实现这类Cases的性能测试。先来看几个Cases。">
@@ -470,10 +470,7 @@
 <p>2.）Search with the specified initialization<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">web_reg_find(&quot;Search=Body&quot;,</span><br><span class="line">    &quot;SaveCount=findcount&quot;,</span><br><span class="line">    &quot;Text=SDGT&quot;,</span><br><span class="line">    LAST);</span><br><span class="line"></span><br><span class="line"> status = web_url(&quot;rplAnywhere-web&quot;,</span><br><span class="line">    &quot;URL=https://it-services-itg.external.hp.com/onebox/rplAnywhere-</span><br><span class="line">     web_1_0_0/services/rpl?name=BIN%20LADEN&amp;countryCode=US&quot;,</span><br><span class="line">    &quot;Resource=0&quot;,</span><br><span class="line">    &quot;RecContentType=text/html&quot;,</span><br><span class="line">    &quot;Referer=&quot;,</span><br><span class="line">    &quot;Snapshot=t6.inf&quot;,</span><br><span class="line">    &quot;Mode=HTML&quot;,</span><br><span class="line">    LAST);</span><br></pre></td></tr></table></figure></p>
 <p>对照Web_URL语法，这里对三个必要参数赋值- Step Name, URL 和 Attribute list. 除了这个函数外，还可以用其他函数如 web_submit_data, web_URL 代替。他们都属于Action Function. 同样可达到发送URL请求的目的。</p>
 <p>接下来就是Checkpoint检查了，代码如下</p>
-<ol start="3">
-<li>) Checkpoint Setting and Validation<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lr_output_message(&quot;request status :%d&quot;, status);</span><br><span class="line">lr_output_message(&quot;find count :%d&quot;, atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)));</span><br><span class="line"></span><br><span class="line">if (atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)) &gt; 0)&#123;//check the times of finding &apos;SDGT&apos; string</span><br><span class="line">        lr_output_message(&quot;found the value at the return page&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_PASS);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        lr_output_message(&quot;found fail&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_FAIL);                </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>3.) Checkpoint Setting and Validation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lr_output_message(&quot;request status :%d&quot;, status);</span><br><span class="line">lr_output_message(&quot;find count :%d&quot;, atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)));</span><br><span class="line"></span><br><span class="line">if (atoi(lr_eval_string(&quot;&#123;findcount&#125;&quot;)) &gt; 0)&#123;//check the times of finding &apos;SDGT&apos; string</span><br><span class="line">        lr_output_message(&quot;found the value at the return page&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_PASS);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        lr_output_message(&quot;found fail&quot;);</span><br><span class="line">        lr_end_transaction(&quot;AdhocSearching&quot;, LR_FAIL);                </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure></p>
 <p>此处的函数的理解可参考上面的解析。这里不再重复了。到此为止，两种案例的代码实现介绍完毕，是不是还是感觉云里雾里？很正常，这主要是因为LR的C实现函数参数太多，而且使用起来也不是很有感觉。</p>
 <p>比喻说调用Web_Custom_request函数发送URL请求。那么函数Web_Custom_request到底该参数化哪些参数？每个参数的值该如何获取？还是没有一个直观的认识。这也是你尽管看了上面那些函数解析后后任然不知所措的根本所在。这是个难点。但我们有办法破解 </p>
 <ul>
@@ -553,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/24/自动化测试流程/" rel="next" title="自动化测试流程">
-                <i class="fa fa-chevron-left"></i> 自动化测试流程
+              <a href="/2015/10/26/基于Outlook的自动化脚本设计/" rel="next" title="基于Outlook的自动化脚本设计">
+                <i class="fa fa-chevron-left"></i> 基于Outlook的自动化脚本设计
               </a>
             
           </div>
@@ -659,7 +656,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -670,7 +667,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -681,7 +678,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
