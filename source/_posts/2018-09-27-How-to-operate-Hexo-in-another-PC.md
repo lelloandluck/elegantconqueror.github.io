@@ -48,9 +48,10 @@ $ git commit -m "commit orign hexo file" (引号中的内容就是description自
 ```
 $ git push --set-upstream origin hexo (hexo是新分支的名称)
 ```
-到这一步我们就基本上搞定了，以后再跟新了博客就直接 git push就可以了，hexo的操作跟以前一样不变。
 
-经过上面的步骤后，我们就把原机器中hexo的原始文件，搬到了github hexo仓库的hexo分支上了。这么做的好处就是以后无论在哪一台机器上更新blog，直接clone这个hexo分支到本地，npm install安装依赖之后就可以用了。 最后写好博客，直接执行如下命令即可将更新的blog部署到master分支上。
+- 到这一步我们就基本上搞定了，以后再跟新了博客就直接 git push就可以了，hexo的操作跟以前一样不变。
+
+- 经过上面的步骤后，我们就把原机器中hexo的原始文件，搬到了github hexo仓库的hexo分支上了。这么做的好处就是以后无论在哪一台机器上更新blog，直接clone这个hexo分支到本地，npm install安装依赖之后就可以用了。 最后写好博客，直接执行如下命令即可将更新的blog部署到master分支上。
 ```
 $ hexo -clean -g -d
 或者分别执行
@@ -77,3 +78,6 @@ npm install hexo-deployer-git --save
 npm install hexo-generator-feed --save
 添加Sitemap,加速网页收录速度
 npm install hexo-generator-sitemap --save
+
+> 再次回到原始机器该怎么做呢
+需要clone hexo分支，然后在更新blog，和上面新机器一样操作，或者直接将source文件夹更新就可以了（因为影响部署静态文件的，应该是source中的内容）
