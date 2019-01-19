@@ -324,6 +324,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2019/01/09/再品软件开发模式之Agile/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan.yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<img src=" images="" icon.jpg"="" alt="Welcome back"><font face="STCAIYUN"><br>To make a difference life</font> <br><font color="yellow" size="4">Welcome to alan's blog</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/再品软件开发模式之Agile/" itemprop="url">软件开发模式之Agile实践总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T15:02:56+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Agile/" itemprop="url" rel="index">
+                    <span itemprop="name">Agile</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <font size="5" color="red" face="华文彩云">Scrum是Agile模式的一个实施框架，可以理解为Agile理念的框架实现单元。</font>
+
+<h4 id="1-Scrum中的角色有"><a href="#1-Scrum中的角色有" class="headerlink" title="1. Scrum中的角色有 -"></a>1. Scrum中的角色有 -</h4><p><strong><em> Scrum Master </em></strong><br>保护团队不受外界干扰，是团队的领导和推进者，负责提升 Scrum 团队的工作效率，控制 Scrum 中的“检视和适应”周期过程。与 Product Owner 一起将投资产出最大化，他确保所有的利益相关者都可以理解敏捷和尊重敏捷的理念。</p>
+<p><strong><em> Team Players(Devolper, QA, DB, Art etc.) </em></strong><br>团队负责交付产品并对其质量负责，团队与所有提出产品需求的人一起工作，包括客户和最终用户，并共同创建 Product Backlog 。团队按照大家的共识来创建功能设计、测试 Backlog 条目交付产品。</p>
+<p><strong><em> Product Owner </em></strong><br>从业务角度驱动项目，传播产品的明确愿景，并定义其主要特性。Product Owner 的主要职责是确保团队只开发对于组织最重要的 Backlog 条目，在 Sprint 中帮助团队完成自己的工作，不干扰团队成员，并迅速提供团队需要的所有信息。</p>
+<p><strong><em> Manager(PM,Investor) </em></strong><br>管理层要为 Scrum 团队搭建良好的环境，以确保团队能够出色工作，必要的时候，他们也会与 Scrum Master 一起重新组织结构和指导原则。</p>
+<p><strong><em> Customer </em></strong><br>客户是为 Scrum 团队提出产品需求的人，她会与组织签订合同，以开发产品。一般来说，这些人是组织中的高级管理人员，负责从外部软件开发公司购买软件开发能力。在为内部产品的公司中，负责批准项目预算的人就是客户。</p>
+<h4 id="2-Scrum-中的产出物"><a href="#2-Scrum-中的产出物" class="headerlink" title="2. Scrum 中的产出物"></a>2. Scrum 中的产出物</h4><p><strong> Product Backlog——Backlog 待开发项，积压的任务。</strong><br>产品 Backlog 包括了所有需要交付的内容，其内容根据业务需求的价值顺序排列，每个 Backlog 的优先级是可以调整的，需求是可以增减的，因此产品 Backlog 将根据不断增长来持续驱动维护。 Product backlog 中列举了本项目应该实现的需求，需求采用了用户故事的方式进行描述，</p>
+<p><strong> Sprint Backlog - Sprint 本意为“冲刺”，指迭代周期(1~5 weeks)</strong><br>在 Sprint 开始前，定义本次 Sprint 要讨论的“Sprint Backlog”，从中产生本次 Sprint 要完成的 “已定 Product Backlog”。</p>
+<p><strong> Product Backlog </strong><br>Sprint 计划会议的产物，它定义了团队所接受的工作量，在整个 Sprint 过程中它将保持不变。</p>
+<p><strong> User Story、Task - 用户故事、任务 </strong><br>用 User Story 来描述 Sprint Backlog 里的项目，<font color="red">User Story 是从用户的角度对系统的某个功能模块所作的简短描述。一个 User Story 描述了项目中的一个小功能，以及这个功能完成之后将会产生什么效果，或者说能为客户创造什么价值。</font> 一个 User Story 的大小和复杂度应该以能在一个 Sprint 中完成为宜。如果 User Story 太大，可能会导致对它的开发横跨几个 Sprint，此时就应该将这个 User Story 分解。<font color="red">为了能够及时，高效地完成每个 Story，Scrum 团队会把每个 Story 分解成若干个 Task。每个Task 的时间最好不要超过8小时，保证在1个工作日内完成，如果 Task 的时间超过了8个小时，就说明Task的划分有问题，需要特别注意。</font></p>
+<p><strong> 障碍 Backlog - 问题列表，积压的待处理事务。</strong><br>列举了所有团队内部和团队相关的和阻碍项目的进度的问题，Scrum Master 需要确保所有的障碍 Backlog 中的问题都已分配并可以得到解决。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/09/再品软件开发模式之Agile/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  <div>
+      
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2018/12/13/The-first-lesson-of-New-Year-PPT/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -418,7 +579,7 @@
         
           
             <p>又到了年终总结的时候了，回顾过去展望未来是职场中的您每年的必修课，此时的PPT绝对是主角儿，那种赏心悦目的PPT不仅能吸引与会者的关注，还能给自己带来意想不到的收获，好处是不言而喻的。在网上搜了一些PPT，绝大部分都是收费的，要想找到一份称心如意的模板还真不是那么容易，这里有部分干货，现分享出来，喜欢的请拿走 -<br><!--*<font size=8 color='blue'>模板示例</font>*--></p>
-<marquee onmouseout="this.start()" onmouseover="this.stop()"><span style="font-weight: bolder;font-size: 28px; color:red">Snapshot Only - Downloading for details</span></marquee>
+<marquee onmouseout="this.start()" onmouseover="this.stop()"><span style="font-weight: bolder;font-size: 24px; color:red">Snapshot Only - Downloading for details</span></marquee>
 
 <p><img src="/images/ppt1.png" alt="截图1"><br><img src="/images/ppt2.jpg" alt="截图2"><br><img src="/images/ppt3.png" alt="截图3"></p>
 <font size="4" color="green"><a href="/images/PPT_Model.rar">模板下载</a></font>
@@ -1482,167 +1643,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2018/09/22/Python静态页面爬虫/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alan.yuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="<img src=" images="" icon.jpg"="" alt="Welcome back"><font face="STCAIYUN"><br>To make a difference life</font> <br><font color="yellow" size="4">Welcome to alan's blog</font>">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/22/Python静态页面爬虫/" itemprop="url">Python静态页面爬虫</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-22T20:35:20+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/页面爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">页面爬虫</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>爬虫技术随着网络的普及和广泛应用，也得到了极大的发展，互联网上有着无数的网页，如何从海量页面中快速的获取信息，是需要思考和解决的问题，这也促使了网络爬虫技术的发展，从一个页面到另一个页面，从一个站点到另一个站点，就像蜘蛛织网一样，因此网络爬虫也形象的称之为网络蜘蛛，也叫网络机器人。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/22/Python静态页面爬虫/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  <div>
-      
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1695,7 +1695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1706,7 +1706,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1717,7 +1717,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1801,7 +1801,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

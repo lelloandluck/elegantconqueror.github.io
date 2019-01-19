@@ -324,6 +324,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2016/10/10/how-to-associate-your-blog-site-with-a-domain/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan.yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<img src=" images="" icon.jpg"="" alt="Welcome back"><font face="STCAIYUN"><br>To make a difference life</font> <br><font color="yellow" size="4">Welcome to alan's blog</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/10/how-to-associate-your-blog-site-with-a-domain/" itemprop="url">how to associate your blog site with a domain</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-10T12:01:34+08:00">
+                2016-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/domain/" itemprop="url" rel="index">
+                    <span itemprop="name">domain</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>网站建起来了，怎么样通过百度，google搜索到你的站点呢？几乎每个建站人员都有类似问题，下面我从自身的Hexo Site实际经历来梳理下这个问题的解决方案。</p>
+<ol>
+<li><p>购买域名<br>从万网（阿里云）中购买域名，这个根据个人需要，可以选择不同后缀的域名，当然价格也是不一样的。另外能提供域名注册的机构有很多，阿里云是国内比较知名的站点，这里不仅购买方便，后续的维护和站点的稳定性也是有保障的。<br><a href="https://www.aliyun.com/?utm_content=se_1000301881" target="_blank" rel="noopener">网址如下</a></p>
+</li>
+<li><p>解析域名<br>购买域名后并不能直接拿来使用，需要对其进行解析，所谓解析就是将你的域名指向你的网站服务器，这样当别人访问域名时将通过解析引导访问指向你的服务器。</p>
+<p>域名解析在阿里云里很容易设置，网上有很多设置步骤，我的做法是直接将CNAME直接做两次引导，如下面设置<br><img src="/images/domainAnalysis.PNG" alt="域名解析"></p>
+</li>
+<li><p>实名认证<br>这个没得说，阿里云平台的必须步骤，没有经过实名认证的域名是不能正常使用的，平台将会把域名处于Serverhold状态，无法使用<br>实名认证后可以ping yourdomainName 来检验下是否该域名生效</p>
+</li>
+<li><p>将域名和Hexo Site关联起来<br>完成上述域名申请购买和认证后，接下来就对Hexo site做一些设置了，我的步骤如下</p>
+<p>4.1 新建CANME文件（在hexo根目录下的source文件夹下）<br><font color="red">$ touch CNAME </font> (或者直接鼠标操作，注意不要任何后缀)</p>
+<p>4.2 在CNAME里写上如下代码并保存<br><a href="http://www.yourdomainName.top" target="_blank" rel="noopener">www.yourdomainName.top</a></p>
+<p>4.3 进入Github在hexo仓库下设置Source page domain 为<br><a href="http://www.yourdomainName.top" target="_blank" rel="noopener">www.yourdomainName.top</a></p>
+<p>4.4 执行并部署网站<br>hexo clean<br>hexo g -d<br>or<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  <div>
+      
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2016/10/03/How-to-operate-Hexo-in-another-PC/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -827,8 +999,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/测试管理/" itemprop="url" rel="index">
-                    <span itemprop="name">测试管理</span>
+                  <a href="/categories/Agile/" itemprop="url" rel="index">
+                    <span itemprop="name">Agile</span>
                   </a>
                 </span>
 
@@ -1405,158 +1577,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lelloandluck.github.io/2015/10/24/The-Common-Knowledge-of-Python-II/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alan.yuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="<img src=" images="" icon.jpg"="" alt="Welcome back"><font face="STCAIYUN"><br>To make a difference life</font> <br><font color="yellow" size="4">Welcome to alan's blog</font>">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/10/24/The-Common-Knowledge-of-Python-II/" itemprop="url">The Common Knowledge of Python - II</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-24T17:06:21+08:00">
-                2015-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天接着梳理Python之函数、类以及相关的知识点，通过简单的代码实例帮助消化这些具体的或抽象的概念对掌握一门编程语言尤为有用，一起来看看我是怎么整理的。<br><strong><font color="red">1. 函数</font></strong></p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def sayHelloToAnyone(): #&lt;font color=&quot;red&quot;&gt; 1. 括号()不可少，即使没带形参，然后冒号 : 也是必须的，这是定义函数的基本特征&lt;/font&gt;</span><br><span class="line">    &apos;&apos;&apos;the purpose of this function aim to output greeting to ones you wan to say</span><br><span class="line">    created Date - 2015.10</span><br><span class="line">     &apos;&apos;&apos; # 2. 这部分为函数的“文档字符串”用来生成程序中函数的文档。</span><br><span class="line">    print(&quot;Hello everyone, I am Pyhon, I love you all!&quot;)</span><br><span class="line"></span><br><span class="line">sayHelloToAnyone() # 3. 要调用函数，可依次指定函数名以及用括号括起的必要信息。 此处由于该函数不需要任何信息参数，所有直接函数名+（）即可。</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/10/24/The-Common-Knowledge-of-Python-II/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ul></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  <div>
-      
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1609,7 +1629,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1620,7 +1640,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1631,7 +1651,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1715,7 +1735,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
