@@ -419,9 +419,7 @@
           <p>之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述：</p>
 <h5 id="1-系统结构方面"><a href="#1-系统结构方面" class="headerlink" title="1 系统结构方面 -"></a>1 系统结构方面 -</h5><p>Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。<br>App项目 - 是基于C/S架构的，客户端多半是移动手持设备，在App测试过程中，只要修改了服务端，那么客户端用户所有核心版本都需要进行回归测试。</p>
 <h6 id="2-系统性能方面"><a href="#2-系统性能方面" class="headerlink" title="2 系统性能方面"></a>2 系统性能方面</h6><p>Web项目 - 通常需要监控系统的响应时间、CPU Utility、Memory Utility，Temperature, Through out/put rate, Concurrent thread/user etc. 通过这些参数找出系统的临界点，并给于相应的建议。<br>App项目 - 通常将重点放在测响应时间、流量、电量、场景等方面</p>
-<h5 id="3-系统兼容方面"><a href="#3-系统兼容方面" class="headerlink" title="3 系统兼容方面"></a>3 系统兼容方面</h5><p>Web项目 - 通常从操作系统和浏览器等方面来考量，如是否兼容系统（Windows7、Windows10、Linux等）是否兼容浏览器 IE6、IE8、Firefox、Chrome等）<br>App项目 - 则侧重于不同的设备和系统，如Andriod系统是否兼容各主流厂商设备，IOS系统是否兼容各apple主流设备如iPhone，iPAD，iWatch等</p>
-<h5 id="4-测试工具方面"><a href="#4-测试工具方面" class="headerlink" title="4 测试工具方面"></a>4 测试工具方面</h5><p>Web测试 - 自动化工具通常使用Selenium，性能测试工具通常使用LoadRunner / JMeter<br>App测试 - 自动化工具通常使用Appium / AutomatorUI / SeeTest 等 ，性能测试工具通常使用JMeter</p>
-<h5 id="5-特征测试方面"><a href="#5-特征测试方面" class="headerlink" title="5 特征测试方面"></a>5 特征测试方面</h5><p>Web特征测试主要包括：<br>链接测试 - 主要是保证链接的可用性和正确性，考虑链接的页面是否存在？是否按指示链接到了相应链接的页面？是否存在空白页面等<br>图形测试 - 确保图形有明确用途，图片或动画不要过于紧凑，以免浪费传输时间；其次，验证文字回绕是否正确<br>打印机测试 - 考虑网页打印是否正常（显示的图片和文本的对齐方式可能与打印出来的东西不一样，是否完整打印）<br>
+<h5 id="3-系统兼容方面"><a href="#3-系统兼容方面" class="headerlink" title="3 系统兼容方面"></a>3 系统兼容方面</h5><p>Web项目 - 通常从操作系统和浏览器等方面来考量，如是否兼容系统（Windows7、Windows10、Linux等）是否兼容浏览器 IE6、IE8、Firefox、Chrome等）<br>App项目 - 则侧重于不同的设备和系统，如Andriod系统是否兼容各主流厂商设备，IOS系统是否兼容各apple主流设备如iPhone，iPAD，iWatch等<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/10/App-测试之我见/#more" rel="contents">
