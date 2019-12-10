@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="自动化测试,Python自动化,outlook,">
 
 
 
@@ -111,15 +111,18 @@
 
 
 
-<meta name="keywords" content="QA, SW Test, Automation Test, QTP, UFT, Python, QC, Test Expert, 软件测试, 软件测试专家, 自动化测试专家, 测试经理, 测试管理, 软件自动化测试">
+<meta name="description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
+<meta name="keywords" content="自动化测试,Python自动化,outlook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to deal with email from Outlook by Python">
 <meta property="og:url" content="https://lelloandluck.github.io/2019/12/10/How-to-deal-with-email-from-Outlook-by-Python/index.html">
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
+<meta property="og:description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:updated_time" content="2019-12-10T13:53:24.067Z">
+<meta property="og:updated_time" content="2019-12-10T14:21:34.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to deal with email from Outlook by Python">
+<meta name="twitter:description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
 
 
 
@@ -364,6 +367,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/自动化测试-Outlook/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化测试 - Outlook</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -391,7 +416,94 @@
       
 
       
-        
+        <p>前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -</p>
+<ol>
+<li>获取Win32模块 -</li>
+<li>自定义类并实现邮件发送和读取函数 -</li>
+<li>详细设计</li>
+<li>代码实现 -</li>
+</ol>
+<a id="more"></a>
+<p>‘’’<br>  import win32com.client as win32<br>    class outlook():<br>        ‘’’<br>        Operation local Outlook application<br>        ‘’’</p>
+<pre><code>    def init(self):
+        pass
+
+    def openoutlook(self):
+        pass
+
+    def sendmail(self, receivers, title, body, attach_path=None):
+        &apos;&apos;&apos;
+        Send the mail -
+        ：param receivers：receivers
+        ：param title：mail title
+        ：param body：mail body
+        ：param attach_path：attached file
+        ；retun: send
+        &apos;&apos;&apos;
+        outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
+        mail = outlook.CreateItem(0) # don&apos;t miss the initial parameter here
+
+        # If multiple receivers, doing like this -
+        if isinstance(receivers, list):
+            if len(receivers) &gt; 1:
+                mail.To = &apos;;&apos;.join(receivers)
+            else:
+                mail.To = receivers[0]
+        else:
+            mail.To = receivers
+        mail.Subject = title
+        mail.Body = body
+        if attach_path is None:
+            pass
+        else:
+            mail.Attachments.Add(attach_path)
+        mail.Send()
+
+
+    def draftmail(self, receivers, title, body, attach_path=None):
+        &apos;&apos;&apos;
+        Save the mail draft
+        :param receivera:recievers
+        :param title: title
+        :param body: mail body
+        :param attach_path: attached file
+        :return:save
+        &apos;&apos;&apos;
+        outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
+        mail = outlook.CreateItem(0)
+
+        # If multiple receivers, doing like this -
+        if isinstance(receivers, list):
+            if len(receivers) &gt; 1:
+                mail.To = &apos;;&apos;.join(receivers)
+            else:
+                mail.To = receivers[0]
+        else:
+            mail.To = receivers
+        mail.Subject = title
+        mail.Body = body
+        if attach_path is not None:
+            mail.Attachments.Add(attach_path)
+        mail.Save()
+
+    def readNewMail(self):
+        outlook = win32.Dispatch(&apos;Outlook.Application&apos;).GetNamespace(&quot;MAPI&quot;)
+        inbox = outlook.GetDefaultFolder(6) # 6 means the inbox folder refer to https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
+        body_content = inbox.Items.GetLast().body
+        return body_content
+
+
+if __name__ == &apos;__main__&apos;:
+    otlk = outlook()
+    last_new_mail = otlk.readNewMail()
+    print(last_new_mail)
+    title = &quot;Testing for mail sending automatically&quot;
+    receivers = &quot;alan_yuan009@live.cn&quot;
+    body = &apos;This is a test mail which sended by Python script automatically, doing this, we hope we would use this to send our test bug regularlly, so dont reply it, it is test purpose only. Thanks. Alan!&apos;
+    filep = r&quot;C:/RTKlog.log&quot;
+    otlk.sendmail(title=title, receivers=receivers, body=body, attach_path=filep)
+</code></pre><p>‘’’</p>
+
       
     </div>
     
@@ -442,6 +554,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自动化测试/" rel="tag"># 自动化测试</a>
+          
+            <a href="/tags/Python自动化/" rel="tag"># Python自动化</a>
+          
+            <a href="/tags/outlook/" rel="tag"># outlook</a>
+          
+        </div>
       
 
       
@@ -592,7 +714,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -603,7 +725,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
