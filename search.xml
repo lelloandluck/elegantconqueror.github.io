@@ -11,7 +11,8 @@
 <li>代码实现 -</li>
 </ol>
 <a id="more"></a>
-<p>‘’’<br>  import win32com.client as win32<br>    class outlook():<br>        ‘’’<br>        Operation local Outlook application<br>        ‘’’</p>
+<p>‘’’</p>
+<p>  import win32com.client as win32<br>    class outlook():<br>        /‘’’<br>        Operation local Outlook application<br>        /‘’’</p>
 <pre><code>    def init(self):
         pass
 
