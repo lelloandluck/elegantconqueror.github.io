@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>How to deal with email from Outlook by Python</title>
+    <url>/2019/12/10/How-to-deal-with-email-from-Outlook-by-Python/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>APP测试之我见</title>
     <url>/2019/10/10/App-%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%88%91%E8%A7%81/</url>
     <content><![CDATA[<p>之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述：</p>
