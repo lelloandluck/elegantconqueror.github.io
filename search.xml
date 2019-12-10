@@ -11,8 +11,6 @@
 <li>代码实现 -</li>
 </ol>
 <a id="more"></a>
-<blockquote>
-</blockquote>
 <p>‘’’<br>  import win32com.client as win32<br>    class outlook():<br>        ‘’’<br>        Operation local Outlook application<br>        ‘’’</p>
 <pre><code>    def init(self):
         pass
@@ -80,7 +78,6 @@
         inbox = outlook.GetDefaultFolder(6) # 6 means the inbox folder refer to https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
         body_content = inbox.Items.GetLast().body
         return body_content
-
 
 if __name__ == &apos;__main__&apos;:
     otlk = outlook()
