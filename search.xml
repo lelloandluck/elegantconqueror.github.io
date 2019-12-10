@@ -11,6 +11,8 @@
 <li>代码实现 -</li>
 </ol>
 <a id="more"></a>
+<blockquote>
+</blockquote>
 <p>‘’’<br>  import win32com.client as win32<br>    class outlook():<br>        ‘’’<br>        Operation local Outlook application<br>        ‘’’</p>
 <pre><code>    def init(self):
         pass
@@ -92,7 +94,8 @@ if __name__ == &apos;__main__&apos;:
 </code></pre><p>‘’’</p>
 ]]></content>
       <categories>
-        <category>自动化测试 - Outlook</category>
+        <category>自动化测试</category>
+        <category>Outlook</category>
       </categories>
       <tags>
         <tag>自动化测试</tag>
