@@ -111,18 +111,18 @@
 
 
 
-<meta name="description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
+<meta name="description" content="前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。 今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API">
 <meta name="keywords" content="自动化测试,Python自动化,outlook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to deal with email from Outlook by Python">
 <meta property="og:url" content="https://lelloandluck.github.io/2019/12/10/How-to-deal-with-email-from-Outlook-by-Python/index.html">
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
-<meta property="og:description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
+<meta property="og:description" content="前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。 今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:updated_time" content="2019-12-10T14:46:28.689Z">
+<meta property="og:updated_time" content="2019-12-11T03:18:45.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to deal with email from Outlook by Python">
-<meta name="twitter:description" content="前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -  获取Win32模块 - 自定义类并实现邮件发送和读取函数 - 详细设计 代码实现 -">
+<meta name="twitter:description" content="前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。 今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API">
 
 
 
@@ -438,82 +438,90 @@
       
 
       
-        <p>前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -</p>
+        <p>前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。</p>
+<p>今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API接口，是python编程必须掌握的核心模块，下面重点说说如何使用Win32模块实现Outlook的邮件收发功能。</p>
 <ol>
-<li>获取Win32模块 -</li>
-<li>自定义类并实现邮件发送和读取函数 -</li>
-<li>详细设计</li>
+<li>获取Win32模块 -<ul>
+<li>通常通过python管道来安装 - pip install pywin32</li>
+<li>有时pip管道安装并不顺利，windows用户可以试着直接下载安装文件来直接安装：</li>
+<li><a href="https://sourceforge.net/projects/pywin32/files/pywin32" target="_blank" rel="noopener">pywin32 module</a></li>
+</ul>
+</li>
+<li>自定义类及收发邮件方法实现 -</li>
+<li>详细设计 -</li>
 <li>代码实现 -</li>
 </ol>
 <a id="more"></a>
 <p>‘’’</p>
-<p>  import win32com.client as win32<br>    class outlook():<br>        /‘’’<br>        Operation local Outlook application<br>        /‘’’</p>
-<pre><code>    def init(self):
+<pre><code>import win32com.client as win32
+class outlook():
+  &apos;&apos;&apos;
+  Operation local Outlook application
+  &apos;&apos;&apos;
+  def init(self):
+    pass
+  def openoutlook(self):
+    pass
+  def sendmail(self, receivers, title, body, attach_path=None):
+    &quot;&quot;&quot;
+    Send the mail -
+    ：param receivers：receivers
+    ：param title：mail title
+    ：param body：mail body
+    ：param attach_path：attached file
+    ；retun: send
+    &quot;&quot;&quot;
+    outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
+    mail = outlook.CreateItem(0) # don&apos;t miss the initial parameter here
+
+    # If multiple receivers, doing like this -
+    if isinstance(receivers, list):
+        if len(receivers) &gt; 1:
+            mail.To = &apos;;&apos;.join(receivers)
+        else:
+            mail.To = receivers[0]
+    else:
+        mail.To = receivers
+    mail.Subject = title
+    mail.Body = body
+    if attach_path is None:
         pass
+    else:
+        mail.Attachments.Add(attach_path)
+    mail.Send()
 
-    def openoutlook(self):
-        pass
 
-    def sendmail(self, receivers, title, body, attach_path=None):
-        &apos;&apos;&apos;
-        Send the mail -
-        ：param receivers：receivers
-        ：param title：mail title
-        ：param body：mail body
-        ：param attach_path：attached file
-        ；retun: send
-        &apos;&apos;&apos;
-        outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
-        mail = outlook.CreateItem(0) # don&apos;t miss the initial parameter here
+  def draftmail(self, receivers, title, body, attach_path=None):
+    &quot;&quot;&quot;
+    Save the mail draft
+    :param receivera:recievers
+    :param title: title
+    :param body: mail body
+    :param attach_path: attached file
+    :return:save
+    &quot;&quot;&quot;
+    outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
+    mail = outlook.CreateItem(0)
 
-        # If multiple receivers, doing like this -
-        if isinstance(receivers, list):
-            if len(receivers) &gt; 1:
-                mail.To = &apos;;&apos;.join(receivers)
-            else:
-                mail.To = receivers[0]
+    # If multiple receivers, doing like this -
+    if isinstance(receivers, list):
+        if len(receivers) &gt; 1:
+            mail.To = &apos;;&apos;.join(receivers)
         else:
-            mail.To = receivers
-        mail.Subject = title
-        mail.Body = body
-        if attach_path is None:
-            pass
-        else:
-            mail.Attachments.Add(attach_path)
-        mail.Send()
+            mail.To = receivers[0]
+    else:
+        mail.To = receivers
+    mail.Subject = title
+    mail.Body = body
+    if attach_path is not None:
+        mail.Attachments.Add(attach_path)
+    mail.Save()
 
-
-    def draftmail(self, receivers, title, body, attach_path=None):
-        &apos;&apos;&apos;
-        Save the mail draft
-        :param receivera:recievers
-        :param title: title
-        :param body: mail body
-        :param attach_path: attached file
-        :return:save
-        &apos;&apos;&apos;
-        outlook = win32.Dispatch(&apos;Outlook.Application&apos;)
-        mail = outlook.CreateItem(0)
-
-        # If multiple receivers, doing like this -
-        if isinstance(receivers, list):
-            if len(receivers) &gt; 1:
-                mail.To = &apos;;&apos;.join(receivers)
-            else:
-                mail.To = receivers[0]
-        else:
-            mail.To = receivers
-        mail.Subject = title
-        mail.Body = body
-        if attach_path is not None:
-            mail.Attachments.Add(attach_path)
-        mail.Save()
-
-    def readNewMail(self):
-        outlook = win32.Dispatch(&apos;Outlook.Application&apos;).GetNamespace(&quot;MAPI&quot;)
-        inbox = outlook.GetDefaultFolder(6) # 6 means the inbox folder refer to https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
-        body_content = inbox.Items.GetLast().body
-        return body_content
+  def readNewMail(self):
+    outlook = win32.Dispatch(&apos;Outlook.Application&apos;).GetNamespace(&quot;MAPI&quot;)
+    inbox = outlook.GetDefaultFolder(6) # 6 means the inbox folder refer to https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
+    body_content = inbox.Items.GetLast().body
+    return body_content
 
 if __name__ == &apos;__main__&apos;:
     otlk = outlook()
@@ -523,9 +531,36 @@ if __name__ == &apos;__main__&apos;:
     receivers = &quot;alan_yuan009@live.cn&quot;
     body = &apos;This is a test mail which sended by Python script automatically, doing this, we hope we would use this to send our test bug regularlly, so dont reply it, it is test purpose only. Thanks. Alan!&apos;
     filep = r&quot;C:/RTKlog.log&quot;
-    otlk.sendmail(title=title, receivers=receivers, body=body, attach_path=filep)
+    otlk.sendmail(title=title, receivers=receivers, body=body, attach_path=filep)        
 </code></pre><p>‘’’</p>
+<p><strong><em>另外，在安装pywin32模块时，要选择和python版本一致的安装包，下面几个常用python命令，可以查看Python的版本和详细安装信息-</em></strong></p>
+<p><strong>DOS Mode -</strong></p>
+<blockquote>
+<ul>
+<li>python</li>
+</ul>
+<ul>
+<li>import sys</li>
+</ul>
+<ul>
+<li>sys.version</li>
+</ul>
+<ul>
+<li>sys.version_info</li>
+</ul>
+<ul>
+<li>sys.winver</li>
+</ul>
+</blockquote>
+<p> <strong>pip管理第三方包常用命令</strong></p>
+<pre><code>pip install python_moudule
+pip list
+pip install --upgrade somePackage
+pip uninstall somePackage
+freeze list
 
+python setup.py install (for the packages which unzip with setup.py file)
+</code></pre>
       
     </div>
     

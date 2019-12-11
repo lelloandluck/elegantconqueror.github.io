@@ -438,11 +438,17 @@
 
       
         
-          <p>前面有篇文章介绍过如何使用Python来操作POP3协议来实现邮件的收发，这里重点介绍下如何通过Python来实现Outlook的邮件收发。借助Win32com接口，其实很简单 -</p>
+          <p>前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。</p>
+<p>今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API接口，是python编程必须掌握的核心模块，下面重点说说如何使用Win32模块实现Outlook的邮件收发功能。</p>
 <ol>
-<li>获取Win32模块 -</li>
-<li>自定义类并实现邮件发送和读取函数 -</li>
-<li>详细设计</li>
+<li>获取Win32模块 -<ul>
+<li>通常通过python管道来安装 - pip install pywin32</li>
+<li>有时pip管道安装并不顺利，windows用户可以试着直接下载安装文件来直接安装：</li>
+<li><a href="https://sourceforge.net/projects/pywin32/files/pywin32" target="_blank" rel="noopener">pywin32 module</a></li>
+</ul>
+</li>
+<li>自定义类及收发邮件方法实现 -</li>
+<li>详细设计 -</li>
 <li>代码实现 -</li>
 </ol>
           <!--noindex-->
