@@ -156,7 +156,9 @@ python setup.py install (for the packages which unzip with setup.py file)
         <category>App Testing</category>
       </categories>
       <tags>
-        <tag>App Testing; Andriod; iOS</tag>
+        <tag>App Testing</tag>
+        <tag>Andriod</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
