@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
 <meta property="og:description" content="前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。 今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API">
 <meta property="og:locale" content="zhn-CN">
-<meta property="og:updated_time" content="2019-12-11T03:18:45.786Z">
+<meta property="og:updated_time" content="2019-12-11T03:26:18.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to deal with email from Outlook by Python">
 <meta name="twitter:description" content="前面有篇文章介绍过如何使用Python的smtplib文件来操作POP3协议，以实现邮件收发的自动化操作，使用smtplib文件来收发邮件，需要事申请邮箱的授权码，并且在工作邮箱账户设置好授权码之后，脚本才能实现其功能。其实没有那么麻烦，这里在再介绍另外一种方法，可以更方便地实现邮件的自动化收发。 今天要介绍的就是Python的win32com接口文件，该文件几乎包含了所有的Windows API">
@@ -533,7 +533,7 @@ if __name__ == &apos;__main__&apos;:
     filep = r&quot;C:/RTKlog.log&quot;
     otlk.sendmail(title=title, receivers=receivers, body=body, attach_path=filep)        
 </code></pre><p>‘’’</p>
-<p><strong><em>另外，在安装pywin32模块时，要选择和python版本一致的安装包，下面几个常用python命令，可以查看Python的版本和详细安装信息-</em></strong></p>
+<p><strong>1. 另外，在安装pywin32模块时，要选择和python版本一致的安装包，下面几个常用python命令，可以查看Python的版本和详细安装信息-*</strong></p>
 <p><strong>DOS Mode -</strong></p>
 <blockquote>
 <ul>
@@ -552,7 +552,7 @@ if __name__ == &apos;__main__&apos;:
 <li>sys.winver</li>
 </ul>
 </blockquote>
-<p> <strong>pip管理第三方包常用命令</strong></p>
+<p><strong>2. pip管理第三方包常用命令</strong></p>
 <pre><code>pip install python_moudule
 pip list
 pip install --upgrade somePackage
@@ -771,7 +771,7 @@ python setup.py install (for the packages which unzip with setup.py file)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

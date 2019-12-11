@@ -98,7 +98,7 @@ if __name__ == &apos;__main__&apos;:
     filep = r&quot;C:/RTKlog.log&quot;
     otlk.sendmail(title=title, receivers=receivers, body=body, attach_path=filep)        
 </code></pre><p>‘’’</p>
-<p><strong><em>另外，在安装pywin32模块时，要选择和python版本一致的安装包，下面几个常用python命令，可以查看Python的版本和详细安装信息-</em></strong></p>
+<p><strong>1. 另外，在安装pywin32模块时，要选择和python版本一致的安装包，下面几个常用python命令，可以查看Python的版本和详细安装信息-*</strong></p>
 <p><strong>DOS Mode -</strong></p>
 <blockquote>
 <ul>
@@ -117,7 +117,7 @@ if __name__ == &apos;__main__&apos;:
 <li>sys.winver</li>
 </ul>
 </blockquote>
-<p> <strong>pip管理第三方包常用命令</strong></p>
+<p><strong>2. pip管理第三方包常用命令</strong></p>
 <pre><code>pip install python_moudule
 pip list
 pip install --upgrade somePackage
@@ -267,6 +267,7 @@ python setup.py install (for the packages which unzip with setup.py file)
 <p><a href="https://blog.csdn.net/bamboolsu/article/details/43951999" target="_blank" rel="noopener">参考文章</a></p>
 ]]></content>
       <categories>
+        <category>测试管理</category>
         <category>Agile</category>
       </categories>
       <tags>
@@ -281,12 +282,13 @@ python setup.py install (for the packages which unzip with setup.py file)
     <title>The first lesson of New Year - PPT</title>
     <url>/2018/12/13/The-first-lesson-of-New-Year-PPT/</url>
     <content><![CDATA[<p>又到了年终总结的时候了，回顾过去展望未来是职场中的您每年的必修课，此时的PPT绝对是主角儿，那种赏心悦目的PPT不仅能吸引与会者的关注，还能给自己带来意想不到的收获，好处是不言而喻的。在网上搜了一些PPT，绝大部分都是收费的，要想找到一份称心如意的模板还真不是那么容易，这里有部分干货，现分享出来，喜欢的请拿走 -<br><!--*<font size=8 color='blue'>模板示例</font>*--></p>
-<marquee onmouseout="this.start()" onmouseover="this.stop()"><span style="font-weight: bolder;font-size: 24px; color:red">Snapshot Only - Downloading for details</span></marquee>
+<marquee onmouseout="this.start()" onmouseover="this.stop()"><span style="font-weight: bolder;font-size: 28px; color:red">All of these are free to you！</span></marquee>
 
 <p><img src="/images/ppt1.png" alt="截图1"><br><img src="/images/ppt2.jpg" alt="截图2"><br><img src="/images/ppt3.png" alt="截图3"></p>
 <font size="4" color="green"><a href="/images/PPT_Model.rar">模板下载</a></font>
 ]]></content>
       <categories>
+        <category>测试管理</category>
         <category>PPT</category>
       </categories>
       <tags>
