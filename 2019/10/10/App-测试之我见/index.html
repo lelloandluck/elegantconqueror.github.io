@@ -111,19 +111,19 @@
 
 
 
-<meta name="description" content="之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目 - 是基于C">
+<meta name="description" content="经历过几个App项目之后，结合之前做过的web项目，总觉得有些东西需要理一理，从测试的角度来看，Web端与App测试有哪些不一样？测试人员需要从哪些方面进行验证？应该怎样去设计和开展测试工作？这里是我的一点点心得： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目">
 <meta name="keywords" content="App Testing,Andriod,iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="APP测试之我见">
 <meta property="og:url" content="https://lelloandluck.github.io/2019/10/10/App-测试之我见/index.html">
 <meta property="og:site_name" content="&lt;img src=&quot;&#x2F;images&#x2F;Icon.jpg&quot; alt=&quot;Welcome back&quot;&gt;&lt;font face=&#39;STCAIYUN&#39;&gt;&lt;br&#x2F;&gt;To make a difference life&lt;&#x2F;font&gt; &lt;br&#x2F;&gt;&lt;font color=&quot;yellow&quot; size=4&gt;Welcome to alan&#39;s blog&lt;&#x2F;font&gt;">
-<meta property="og:description" content="之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目 - 是基于C">
+<meta property="og:description" content="经历过几个App项目之后，结合之前做过的web项目，总觉得有些东西需要理一理，从测试的角度来看，Web端与App测试有哪些不一样？测试人员需要从哪些方面进行验证？应该怎样去设计和开展测试工作？这里是我的一点点心得： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目">
 <meta property="og:locale" content="zhn-CN">
 <meta property="og:image" content="https://lelloandluck.github.io/images/automationTools.JPG">
-<meta property="og:updated_time" content="2019-12-11T07:10:19.316Z">
+<meta property="og:updated_time" content="2019-12-12T11:46:54.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP测试之我见">
-<meta name="twitter:description" content="之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目 - 是基于C">
+<meta name="twitter:description" content="经历过几个App项目之后，结合之前做过的web项目，总觉得有些东西需要理一理，从测试的角度来看，Web端与App测试有哪些不一样？测试人员需要从哪些方面进行验证？应该怎样去设计和开展测试工作？这里是我的一点点心得： 1 系统结构方面 -Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。App项目">
 <meta name="twitter:image" content="https://lelloandluck.github.io/images/automationTools.JPG">
 
 
@@ -418,7 +418,7 @@
       
 
       
-        <p>之前一直在web项目上从事测试及管理工作，在经历过几个App项目之后，有必要来个小小的总结，Web测试与App测试到底有哪些不一样，作为测试人员应该怎样去区分和展开工作，这里主要在如下几个方面进行阐述：</p>
+        <p>经历过几个App项目之后，结合之前做过的web项目，总觉得有些东西需要理一理，从测试的角度来看，Web端与App测试有哪些不一样？测试人员需要从哪些方面进行验证？应该怎样去设计和开展测试工作？这里是我的一点点心得：</p>
 <h5 id="1-系统结构方面"><a href="#1-系统结构方面" class="headerlink" title="1 系统结构方面 -"></a>1 系统结构方面 -</h5><p>Web项目 - 主要是基于B/S架构来部署的，用户需要从浏览器来进行操作，在Web的测试过程中，客户端会随服务器端同步更新，测试的重点主要放在服务器端。<br>App项目 - 是基于C/S架构的，客户端多半是移动手持设备，在App测试过程中，只要修改了服务端，那么客户端用户所有核心版本都需要进行回归测试。</p>
 <h6 id="2-系统性能方面"><a href="#2-系统性能方面" class="headerlink" title="2 系统性能方面"></a>2 系统性能方面</h6><p>Web项目 - 通常需要监控系统的响应时间、CPU Utility、Memory Utility，Temperature, Through out/put rate, Concurrent thread/user etc. 通过这些参数找出系统的临界点，并给于相应的建议。<br>App项目 - 通常将重点放在测响应时间、流量、电量、场景等方面</p>
 <h5 id="3-系统兼容方面"><a href="#3-系统兼容方面" class="headerlink" title="3 系统兼容方面"></a>3 系统兼容方面</h5><p>Web项目 - 通常从操作系统和浏览器等方面来考量，如是否兼容系统（Windows7、Windows10、Linux等）是否兼容浏览器 IE6、IE8、Firefox、Chrome等）<br>App项目 - 则侧重于不同的设备和系统，如Andriod系统是否兼容各主流厂商设备，IOS系统是否兼容各apple主流设备如iPhone，iPAD，iWatch等<br><a id="more"></a></p>
