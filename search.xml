@@ -164,7 +164,7 @@ python setup.py install (for the packages which unzip with setup.py file)
   <entry>
     <title>软件开发模式之Agile实践总结</title>
     <url>/2019/01/09/%E5%86%8D%E5%93%81%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E4%B9%8BAgile/</url>
-    <content><![CDATA[<font size="5" color="red" face="华文彩云">Scrum是Agile模式的一个实施框架，可以理解为Agile理念的框架实现单元。</font>
+    <content><![CDATA[<font size="4" color="red" face="华文彩云">Scrum是Agile模式的一个实施框架，可以理解为Agile理念的框架实现单元。</font>
 
 <h4 id="1-Scrum中的角色有"><a href="#1-Scrum中的角色有" class="headerlink" title="1. Scrum中的角色有 -"></a>1. Scrum中的角色有 -</h4><p><strong><em> Scrum Master </em></strong><br>保护团队不受外界干扰，是团队的领导和推进者，负责提升 Scrum 团队的工作效率，控制 Scrum 中的“检视和适应”周期过程。与 Product Owner 一起将投资产出最大化，他确保所有的利益相关者都可以理解敏捷和尊重敏捷的理念。</p>
 <p><strong><em> Team Players(Devolper, QA, DB, Art etc.) </em></strong><br>团队负责交付产品并对其质量负责，团队与所有提出产品需求的人一起工作，包括客户和最终用户，并共同创建 Product Backlog 。团队按照大家的共识来创建功能设计、测试 Backlog 条目交付产品。</p>
@@ -701,7 +701,7 @@ python setup.py install (for the packages which unzip with setup.py file)
   <entry>
     <title>测试管理修炼之如何成为一名优秀的测试总监</title>
     <url>/2017/06/19/%E6%B5%8B%E8%AF%95%E7%AE%A1%E7%90%86%E4%BF%AE%E7%82%BC%E4%B9%8B%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E4%B8%80%E5%90%8D%E4%BC%98%E7%A7%80%E7%9A%84%E6%B5%8B%E8%AF%95%E6%80%BB%E7%9B%91/</url>
-    <content><![CDATA[<p>俗话说得好，不经历风雨怎么见彩虹，不被坑的领导不是真正的领导。测试工作是一门跨学科的工作，想成为一名优秀的测试管理者，除了具备跨学科的综合技能外，在制定工作流程和规章制度中一定要遵循可实施，可监督，可统计，可归纳等基本要素，如何做到这一点呢，我认为不防从如下方面多多思考和历练。<br><a id="more"></a><br>首先测试的类别繁多，平常所说的功能测试，性能测试，压力测试，冒烟测试，平台测试（SDK、<br>Web，GM工具等等，种类繁多。作为一个测试管理者，可根据团队实际（如人员多少，团队整体技术力量，测试环境等），合理的划分测试类别和内容。把功能和关联性强的接口日志等放在测试组中测试，把关联性较弱的如性能，平台兼容性，SDK，单元测试等放在平台组中去测试。这样可以充分发挥团队的效率。一旦测试任务和测试资源确定后，可以通过如下的步骤来具体实施。</p>
+    <content><![CDATA[<p>俗话说得好，不经历风雨怎么见彩虹，不被坑的领导不是真正的领导。测试工作是一门跨学科的工作，想成为一名优秀的测试管理者，除了具备跨学科的综合技能外，在制定工作流程和规章制度中一定要遵循可实施，可监督，可统计，可归纳等基本要素，如何做到这一点呢，我认为不防从如下方面多多思考和历练。<br><a id="more"></a><br>首先测试的类别繁多，平常所说的功能测试，性能测试，压力测试，冒烟测试，回归测试，平台测试（SDK、Web，GM工具等等）就琳琅满目，不胜枚举。作为一个测试管理者，可根据团队实际情况（如人员多少，团队整体技术力量，测试环境等），合理的划分测试类别和内容。把功能和关联性强的接口日志等放在测试组中测试，把关联性较弱的如性能，平台兼容性，SDK，单元测试等放在平台组中去测试。这样可以充分发挥团队的效率。一旦测试任务和测试资源确定后，可以通过如下的步骤来具体实施。</p>
 <p>这里我把质量管理的工作拆分为如下九个过程来具体展开 -</p>
 <ul>
 <li>软件质量管理的九个方面<br><img src="/images/testArchitecture.png" alt="Quality Architecture"></li>
