@@ -1195,9 +1195,9 @@ Scrum是Agile开发的一种模式，Agile开发中远不止Scrum这种模式，
         <category>LR</category>
       </categories>
       <tags>
-        <tag>LR</tag>
         <tag>性能测试</tag>
         <tag>Performance Testing</tag>
+        <tag>LR</tag>
       </tags>
   </entry>
   <entry>
@@ -1498,8 +1498,8 @@ Scrum是Agile开发的一种模式，Agile开发中远不止Scrum这种模式，
       </categories>
       <tags>
         <tag>自动化测试</tag>
-        <tag>QTP/UFT</tag>
         <tag>LR</tag>
+        <tag>QTP/UFT</tag>
       </tags>
   </entry>
 </search>
